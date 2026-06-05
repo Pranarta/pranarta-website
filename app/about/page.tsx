@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Reveal } from '@/components/reveal'
+import { BRAND, IMAGES } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: 'About | PRANARTA | Tom Van Geem | Ibiza',
@@ -13,10 +14,18 @@ export default function AboutPage() {
     <>
       {/* Hero */}
       <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-dark pt-20">
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-35"
+          style={{ backgroundImage: `url(${IMAGES.aboutVilla})` }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-dark/50 via-dark/70 to-dark" />
         <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto py-16 sm:py-20">
           <Reveal>
+            <p className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase font-light mb-4">
+              {BRAND.name}
+            </p>
             <h1 className="font-serif text-[clamp(2rem,5vw,4rem)] font-light text-beige mb-6 leading-[1.2] tracking-[0.02em]">
-              About PRANARTA
+              About {BRAND.name}
             </h1>
           </Reveal>
           <Reveal delay={100}>
@@ -132,7 +141,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
           <Reveal>
             <p className="text-beige/70 text-base sm:text-lg font-light mb-10">
-              Explore the two paths of PRANARTA.
+              Explore the paths of {BRAND.name}.
             </p>
           </Reveal>
           <Reveal delay={200}>
@@ -148,6 +157,12 @@ export default function AboutPage() {
                 className="inline-block px-8 py-4 border border-gold text-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-gold hover:text-dark w-full sm:w-auto text-center min-w-[240px]"
               >
                 The Emerald Touch
+              </Link>
+              <Link
+                href="/signature"
+                className="inline-block px-8 py-4 border border-gold text-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-gold hover:text-dark w-full sm:w-auto text-center min-w-[240px]"
+              >
+                Signature Experience
               </Link>
             </div>
           </Reveal>

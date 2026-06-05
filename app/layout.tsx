@@ -21,12 +21,14 @@ const cormorant = Cormorant_Garamond({
 })
 
 export const metadata: Metadata = {
-  title: 'Tom Van Geem — Private Sound & Body Experiences | Ibiza',
-  description: 'Private sound and body experiences in Ibiza. Handpan, live sound, and refined immersive sessions for villas, retreats, and intimate gatherings.',
-  keywords: 'handpan artist, Ibiza, sound experiences, body experiences, private sessions, luxury retreats, live performance, wellness',
+  title: 'PRANARTA — Where Sound Meets Body | Tom Van Geem | Ibiza',
+  description:
+    'PRANARTA — Sound Experiences, The Emerald Touch, and Signature Experiences in Ibiza. Handpan, live sound, and refined immersive sessions.',
+  keywords:
+    'PRANARTA, Tom Van Geem, handpan, Ibiza, sound experiences, Emerald Touch, signature experience, luxury retreats, live performance',
   openGraph: {
-    title: 'Tom Van Geem — Private Sound & Body Experiences',
-    description: 'Handpan, live sound, and refined immersive sessions in Ibiza.',
+    title: 'PRANARTA — Where Sound Meets Body',
+    description: 'Sound Experiences, The Emerald Touch, and Signature Experiences in Ibiza.',
     type: 'website',
   },
 }

@@ -1,12 +1,7 @@
 import Link from 'next/link'
 import { MessageCircle, Instagram } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
-
-const WHATSAPP_LINK = 'https://wa.me/972587855123'
-const INSTAGRAM_LINK = 'https://www.instagram.com/pranarta7/'
-
-const HEAD_MASSAGE_IMAGE =
-  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-23%20at%2023.27.24-sHKAV8qRZSmGSoyGfT89iD9kmQycX5.jpeg'
+import { IMAGES, LINKS, WHATSAPP_PREFILLS, whatsappUrl } from '@/lib/site'
 
 export default function BodyPage() {
   return (
@@ -15,7 +10,7 @@ export default function BodyPage() {
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-dark pt-20">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-35"
-          style={{ backgroundImage: `url(${HEAD_MASSAGE_IMAGE})` }}
+          style={{ backgroundImage: `url(${IMAGES.headMassage})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-dark/50 via-dark/70 to-dark" />
 
@@ -150,12 +145,20 @@ export default function BodyPage() {
             </p>
           </Reveal>
           <Reveal delay={300}>
-            <Link
-              href="/sound"
-              className="inline-block px-8 py-4 border border-gold text-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-gold hover:text-dark"
-            >
-              Explore Sound Experiences
-            </Link>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+              <Link
+                href="/sound"
+                className="inline-block px-8 py-4 border border-gold text-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-gold hover:text-dark"
+              >
+                Explore Sound Experiences
+              </Link>
+              <Link
+                href="/signature"
+                className="inline-block px-8 py-4 border border-gold text-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-gold hover:text-dark"
+              >
+                Signature Experience
+              </Link>
+            </div>
           </Reveal>
         </div>
       </section>
@@ -176,7 +179,7 @@ export default function BodyPage() {
           <Reveal delay={400}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
               <a
-                href={WHATSAPP_LINK}
+                href={whatsappUrl(WHATSAPP_PREFILLS.emeraldTouch)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 px-10 py-4 bg-gold text-dark border border-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-transparent hover:text-gold w-full sm:w-auto min-w-[220px]"
@@ -185,7 +188,7 @@ export default function BodyPage() {
                 WhatsApp
               </a>
               <a
-                href={INSTAGRAM_LINK}
+                href={LINKS.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 px-10 py-4 border border-gold text-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-gold hover:text-dark w-full sm:w-auto min-w-[220px]"

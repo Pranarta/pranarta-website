@@ -1,102 +1,107 @@
 import Link from 'next/link'
 import { MessageCircle, Instagram } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
-
-const WHATSAPP_LINK = 'https://wa.me/972587855123?text=Hello%20Tom,%20I%20am%20interested%20in%20booking%20a%20private%20experience%20in%20Ibiza'
-const INSTAGRAM_LINK = 'https://www.instagram.com/pranarta7/'
+import { BRAND, IMAGES, LINKS, WHATSAPP_PREFILLS, whatsappUrl } from '@/lib/site'
 
 export default function HomePage() {
   return (
     <>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-dark">
-        {/* Background Image with Overlay */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
-          style={{
-            backgroundImage: 'url(https://hebbkx1anhila5yf.public.blob.vercel-storage.com/d.png-NWPvw1BT4P5qeNrzLan7tZBSyOnRM1.jpeg)',
-          }}
+          style={{ backgroundImage: `url(${IMAGES.heroCrowd})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-dark/40 via-dark/60 to-dark" />
 
-        {/* Hero Content */}
         <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto py-24 sm:py-32">
+          <Reveal>
+            <p className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase font-light mb-6">
+              {BRAND.practitioner}
+            </p>
+          </Reveal>
           <Reveal delay={100}>
-            <h1 className="font-serif text-[clamp(2rem,5vw,4rem)] font-light text-beige mb-4 leading-[1.2] tracking-[0.02em]">
-              Handpan &amp; Sound Journeys
-              <br />
-              Head Massage &mdash; The Emerald Touch
+            <h1 className="font-serif text-[clamp(2.5rem,6vw,4.5rem)] font-light text-beige mb-4 leading-[1.2] tracking-[0.04em]">
+              {BRAND.name}
             </h1>
           </Reveal>
-          
           <Reveal delay={200}>
-            <p className="font-serif text-[clamp(1.1rem,2vw,1.4rem)] font-light text-beige/90 mb-10">
-              Experiences designed to slow the mind,
+            <p className="font-serif text-[clamp(1.2rem,2.5vw,1.75rem)] font-light text-beige/90 mb-4">
+              {BRAND.tagline}
+            </p>
+          </Reveal>
+          <Reveal delay={300}>
+            <p className="text-beige/80 text-base sm:text-lg font-light leading-relaxed max-w-2xl mx-auto mb-10">
+              Handpan &amp; Sound Journeys · The Emerald Touch
               <br />
-              open the senses and reconnect with presence.
+              <span className="text-beige/70">
+                Experiences designed to slow the mind, open the senses and reconnect with presence.
+              </span>
             </p>
           </Reveal>
 
-          <Reveal delay={300}>
+          <Reveal delay={400}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
               <Link
-                href="/sound"
+                href="/signature"
                 className="inline-block px-8 py-4 bg-gold text-dark border border-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-transparent hover:text-gold w-full sm:w-auto text-center min-w-[240px]"
               >
-                Explore Sound Experiences
+                Signature Experience
               </Link>
               <Link
-                href="/body"
+                href="/booking"
                 className="inline-block px-8 py-4 border border-gold text-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-gold hover:text-dark w-full sm:w-auto text-center min-w-[240px]"
               >
-                Explore Body Experiences
+                Book with {BRAND.name}
               </Link>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* About / Fusion Identity Section */}
+      {/* Fusion */}
       <section className="py-24 sm:py-32 bg-dark border-t border-gold/10">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 text-center">
           <Reveal>
             <h2 className="font-serif text-[clamp(1.8rem,3.5vw,2.8rem)] font-light text-beige tracking-[0.02em] mb-8 leading-[1.3]">
-              Where Sound Meets Body
+              {BRAND.tagline}
             </h2>
           </Reveal>
           <Reveal delay={200}>
             <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed mb-6">
-              Private experiences that blend acoustic handpan, organic electronic sound, and presence-based bodywork into refined, deeply immersive sessions.
+              {BRAND.name} blends live handpan, organic electronic sound, and The Emerald Touch into
+              refined, deeply immersive experiences — curated for luxury villas, retreats, and
+              meaningful gatherings in Ibiza.
             </p>
           </Reveal>
           <Reveal delay={300}>
             <p className="text-beige/60 text-base sm:text-lg font-light leading-relaxed italic">
-              Curated for luxury villas, retreats, and intimate gatherings in Ibiza.
+              Public performances and private bookings — Ibiza and beyond.
             </p>
           </Reveal>
         </div>
       </section>
 
-      {/* Sound & Body Preview Cards */}
+      {/* Three Offers */}
       <section className="py-24 sm:py-32 bg-dark">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-            {/* Sound Card */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-8">
             <Reveal>
               <Link href="/sound" className="group block">
                 <div className="relative aspect-[4/3] overflow-hidden border border-gold/20 transition-all duration-500 group-hover:border-gold">
                   <img
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/d.png-NWPvw1BT4P5qeNrzLan7tZBSyOnRM1.jpeg"
-                    alt="Sound Experience"
+                    src={IMAGES.liveShow}
+                    alt="Sound Experiences"
                     className="w-full h-full object-cover opacity-70 transition-all duration-500 group-hover:opacity-90 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-                    <h3 className="text-gold text-[clamp(1.3rem,2.5vw,1.6rem)] font-serif tracking-[0.05em] mb-3">
-                      Sound Journeys
+                    <h3 className="text-gold text-[clamp(1.2rem,2vw,1.5rem)] font-serif tracking-[0.05em] mb-3">
+                      Sound Experiences
                     </h3>
                     <p className="text-beige/80 font-light text-sm sm:text-base mb-4">
-                      Handpan, DJ sets and immersive sound journeys blending live performance, organic electronic music and atmosphere.
+                      Handpan, DJ sets and immersive sound journeys blending live performance,
+                      organic electronic music and atmosphere.
                     </p>
                     <span className="text-gold text-xs tracking-[0.15em] uppercase font-light group-hover:tracking-[0.2em] transition-all duration-300">
                       Explore Sound
@@ -106,25 +111,50 @@ export default function HomePage() {
               </Link>
             </Reveal>
 
-            {/* Body Card */}
-            <Reveal delay={200}>
+            <Reveal delay={100}>
               <Link href="/body" className="group block">
                 <div className="relative aspect-[4/3] overflow-hidden border border-gold/20 transition-all duration-500 group-hover:border-gold">
                   <img
-                    src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-23%20at%2023.27.24-sHKAV8qRZSmGSoyGfT89iD9kmQycX5.jpeg"
-                    alt="Body Experience"
+                    src={IMAGES.headMassage}
+                    alt="The Emerald Touch"
                     className="w-full h-full object-cover opacity-70 transition-all duration-500 group-hover:opacity-90 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
-                    <h3 className="text-gold text-[clamp(1.3rem,2.5vw,1.6rem)] font-serif tracking-[0.05em] mb-3">
+                    <h3 className="text-gold text-[clamp(1.2rem,2vw,1.5rem)] font-serif tracking-[0.05em] mb-3">
                       The Emerald Touch
                     </h3>
                     <p className="text-beige/80 font-light text-sm sm:text-base mb-4">
-                      A unique head massage experience where touch, stillness and presence come together to create space for deep relaxation and inner exploration.
+                      A unique head massage experience where touch, stillness and presence come
+                      together to create space for deep relaxation and inner exploration.
                     </p>
                     <span className="text-gold text-xs tracking-[0.15em] uppercase font-light group-hover:tracking-[0.2em] transition-all duration-300">
                       Explore Body
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            </Reveal>
+
+            <Reveal delay={200}>
+              <Link href="/signature" className="group block">
+                <div className="relative aspect-[4/3] overflow-hidden border border-gold/20 transition-all duration-500 group-hover:border-gold">
+                  <img
+                    src={IMAGES.aboutVilla}
+                    alt="Signature Experience"
+                    className="w-full h-full object-cover opacity-70 transition-all duration-500 group-hover:opacity-90 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
+                    <h3 className="text-gold text-[clamp(1.2rem,2vw,1.5rem)] font-serif tracking-[0.05em] mb-3">
+                      Signature Experience
+                    </h3>
+                    <p className="text-beige/80 font-light text-sm sm:text-base mb-4">
+                      Sound and The Emerald Touch in one curated evening — the complete {BRAND.name}{' '}
+                      arc for villas, retreats and private gatherings.
+                    </p>
+                    <span className="text-gold text-xs tracking-[0.15em] uppercase font-light group-hover:tracking-[0.2em] transition-all duration-300">
+                      Explore Signature
                     </span>
                   </div>
                 </div>
@@ -145,13 +175,9 @@ export default function HomePage() {
             </div>
           </Reveal>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-6">
-            {[
-              { src: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/d.png-NWPvw1BT4P5qeNrzLan7tZBSyOnRM1.jpeg', alt: 'Handpan Session' },
-              { src: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-23%20at%2023.27.24-sHKAV8qRZSmGSoyGfT89iD9kmQycX5.jpeg', alt: 'Head Massage' },
-              { src: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-23%20at%2022.34.11-E7LucUs5PZBXf8lZAg5sQPECAlekIR.jpeg', alt: 'Es Vedra Portrait' },
-            ].map((image, index) => (
-              <Reveal key={index} delay={index * 100}>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-6">
+            {IMAGES.gallery.map((image, index) => (
+              <Reveal key={image.src} delay={index * 100}>
                 <div className="aspect-square overflow-hidden border border-gold/20 transition-all duration-300 hover:border-gold">
                   <img
                     src={image.src}
@@ -181,18 +207,18 @@ export default function HomePage() {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
           <Reveal>
             <h2 className="font-serif text-[clamp(1.8rem,3.5vw,2.8rem)] font-light text-beige tracking-[0.02em] mb-6">
-              Book Your Experience
+              Book with {BRAND.name}
             </h2>
           </Reveal>
           <Reveal delay={200}>
             <p className="text-beige/70 text-base sm:text-lg font-light mb-10">
-              Reach out directly via WhatsApp for quick response.
+              Reach out directly via WhatsApp for a personal response.
             </p>
           </Reveal>
           <Reveal delay={400}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
               <a
-                href={WHATSAPP_LINK}
+                href={whatsappUrl(WHATSAPP_PREFILLS.general)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 px-8 py-4 bg-gold text-dark border border-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-transparent hover:text-gold w-full sm:w-auto min-w-[220px]"
@@ -201,7 +227,7 @@ export default function HomePage() {
                 WhatsApp
               </a>
               <a
-                href={INSTAGRAM_LINK}
+                href={LINKS.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 px-8 py-4 border border-gold text-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-gold hover:text-dark w-full sm:w-auto min-w-[220px]"

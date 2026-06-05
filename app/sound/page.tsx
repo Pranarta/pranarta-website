@@ -1,33 +1,26 @@
 import Link from 'next/link'
 import { MessageCircle } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
+import { BRAND, IMAGES, WHATSAPP_PREFILLS, whatsappUrl } from '@/lib/site'
 
-const WHATSAPP_LINK = 'https://wa.me/972587855123'
-
-const soundExperiences = [
+const soundFormats = [
   {
-    title: 'Live Handpan Sessions',
+    title: 'Handpan Performances',
     description:
-      'Acoustic handpan — unhurried, live, and present. From public performances and festival stages to retreat openings and conscious gatherings, each set is shaped for the room and the moment.',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/d.png-NWPvw1BT4P5qeNrzLan7tZBSyOnRM1.jpeg',
+      'Acoustic live handpan performances for ceremonies, sunset sessions, retreats, villas and events.',
+    image: IMAGES.liveShow,
   },
   {
-    title: 'Sunset & Outdoor Events',
+    title: 'Electro-Acoustic Sound Journeys',
     description:
-      'Golden-hour sound for sunset programs, wellness events, and open-air ceremonies. Handpan carried on the evening air — refined, immersive, and quietly magnetic.',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-23%20at%2022.34.11-E7LucUs5PZBXf8lZAg5sQPECAlekIR.jpeg',
+      'A hybrid format blending handpan, live elements and organic electronic textures. Immersive listening experiences designed to create atmosphere and presence.',
+    image: IMAGES.gallery[2].src,
   },
   {
-    title: 'Retreats & Festivals',
+    title: 'DJ Sets',
     description:
-      'Live music for retreat facilitators, festival curators, and cultural programs. Whether a morning circle, a main-stage set, or a late-night journey, the sound holds space without overpowering it.',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-23%20jat%2023.27.24-sQZgTo5eW74az1SDbwT0o14AhCWfoy.jpeg',
-  },
-  {
-    title: 'Organic Electronic Journeys',
-    description:
-      'Handpan woven with live looping and organic electronic texture — performed in real time, never pre-recorded. For longer evenings, hybrid programs, and gatherings that ask for depth and movement.',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-23%20%20nat%2023.27.24-fhHO9cnDUVIsDlinHyYmpSczeCoiv2.jpeg',
+      'Organic house, downtempo, melodic and sunset-oriented DJ sets. Suitable for villas, retreats, conscious gatherings and special events.',
+    image: IMAGES.gallery[1].src,
   },
 ]
 
@@ -56,17 +49,14 @@ export default function SoundPage() {
       <section className="relative min-h-[58vh] flex items-center justify-center overflow-hidden bg-dark pt-20">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-35"
-          style={{
-            backgroundImage:
-              'url(https://hebbkx1anhila5yf.public.blob.vercel-storage.com/d.png-NWPvw1BT4P5qeNrzLan7tZBSyOnRM1.jpeg)',
-          }}
+          style={{ backgroundImage: `url(${IMAGES.liveShow})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-dark/50 via-dark/70 to-dark" />
 
         <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto py-16">
           <Reveal>
             <p className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase font-light mb-3">
-              Sound Experiences
+              {BRAND.name} · Sound
             </p>
           </Reveal>
           <Reveal delay={100}>
@@ -96,30 +86,30 @@ export default function SoundPage() {
         </div>
       </section>
 
-      {/* Experiences Grid */}
+      {/* Formats */}
       <section className="py-16 sm:py-24 bg-dark">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <div className="space-y-12 sm:space-y-20">
-            {soundExperiences.map((experience, index) => (
-              <Reveal key={experience.title} delay={100}>
+            {soundFormats.map((format, index) => (
+              <Reveal key={format.title} delay={100}>
                 <div
                   className={`grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-10 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}
                 >
                   <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
                     <div className="aspect-[4/3] overflow-hidden border border-gold/20">
                       <img
-                        src={experience.image}
-                        alt={experience.title}
+                        src={format.image}
+                        alt={format.title}
                         className="w-full h-full object-cover opacity-85"
                       />
                     </div>
                   </div>
                   <div className={`space-y-3 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                     <h3 className="font-serif text-[clamp(1.4rem,2.5vw,2rem)] text-beige tracking-[0.02em]">
-                      {experience.title}
+                      {format.title}
                     </h3>
                     <p className="text-beige/70 font-light text-base sm:text-lg leading-relaxed">
-                      {experience.description}
+                      {format.description}
                     </p>
                   </div>
                 </div>
@@ -183,12 +173,20 @@ export default function SoundPage() {
             </p>
           </Reveal>
           <Reveal delay={300}>
-            <Link
-              href="/body"
-              className="inline-block px-8 py-4 border border-gold text-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-gold hover:text-dark"
-            >
-              Explore The Emerald Touch
-            </Link>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+              <Link
+                href="/body"
+                className="inline-block px-8 py-4 border border-gold text-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-gold hover:text-dark"
+              >
+                Explore The Emerald Touch
+              </Link>
+              <Link
+                href="/signature"
+                className="inline-block px-8 py-4 border border-gold text-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-gold hover:text-dark"
+              >
+                Signature Experience
+              </Link>
+            </div>
           </Reveal>
         </div>
       </section>
@@ -209,7 +207,7 @@ export default function SoundPage() {
           </Reveal>
           <Reveal delay={400}>
             <a
-              href={WHATSAPP_LINK}
+              href={whatsappUrl(WHATSAPP_PREFILLS.sound)}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-gold text-dark border border-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-transparent hover:text-gold"

@@ -5,18 +5,17 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X, Instagram, MessageCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { LINKS, WHATSAPP_PREFILLS, whatsappUrl } from '@/lib/site'
 
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Sound', href: '/sound' },
   { name: 'Body', href: '/body' },
+  { name: 'Signature', href: '/signature' },
   { name: 'About', href: '/about' },
   { name: 'Gallery', href: '/gallery' },
   { name: 'Booking', href: '/booking' },
 ]
-
-const WHATSAPP_LINK = 'https://wa.me/972587855123?text=Hello%20Tom,%20I%20am%20interested%20in%20booking%20a%20private%20experience%20in%20Ibiza'
-const INSTAGRAM_LINK = 'https://www.instagram.com/pranarta7/'
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -116,7 +115,7 @@ export function Header() {
           
           <div className="flex items-center gap-4 mt-8">
             <a
-              href={INSTAGRAM_LINK}
+              href={LINKS.instagram}
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 border border-gold/30 text-beige transition-all duration-300 hover:border-gold hover:text-gold"
@@ -125,7 +124,7 @@ export function Header() {
               <Instagram className="h-5 w-5" />
             </a>
             <a
-              href={WHATSAPP_LINK}
+              href={whatsappUrl(WHATSAPP_PREFILLS.general)}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-gold text-dark px-6 py-3 text-sm font-light tracking-[0.15em] uppercase transition-all duration-300 hover:bg-transparent hover:text-gold border border-gold"
