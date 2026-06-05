@@ -10,6 +10,7 @@ const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Sound', href: '/sound' },
   { name: 'Body', href: '/body' },
+  { name: 'About', href: '/about' },
   { name: 'Gallery', href: '/gallery' },
   { name: 'Booking', href: '/booking' },
 ]
@@ -50,7 +51,10 @@ export function Header() {
             href="/" 
             className="text-gold text-xs sm:text-sm tracking-[0.15em] font-light uppercase"
           >
-            Tom Van Geem
+            <span className="block">PRANARTA</span>
+            <span className="block normal-case tracking-[0.08em] text-[0.85em] text-beige/70 mt-0.5">
+              by Tom Van Geem
+            </span>
           </Link>
 
           {/* Desktop Navigation */}

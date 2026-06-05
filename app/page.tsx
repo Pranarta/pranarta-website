@@ -21,21 +21,19 @@ export default function HomePage() {
 
         {/* Hero Content */}
         <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto py-24 sm:py-32">
-          <Reveal>
-            <p className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase font-light mb-6">
-              Tom Van Geem
-            </p>
-          </Reveal>
-          
           <Reveal delay={100}>
             <h1 className="font-serif text-[clamp(2rem,5vw,4rem)] font-light text-beige mb-4 leading-[1.2] tracking-[0.02em]">
-              Handpan &middot; Organic Electronic Sound &middot; Head Massage
+              Handpan &amp; Sound Journeys
+              <br />
+              Head Massage &mdash; The Emerald Touch
             </h1>
           </Reveal>
           
           <Reveal delay={200}>
             <p className="font-serif text-[clamp(1.1rem,2vw,1.4rem)] font-light text-beige/90 mb-10">
-              Immersive experiences in Ibiza.
+              Experiences designed to slow the mind,
+              <br />
+              open the senses and reconnect with presence.
             </p>
           </Reveal>
 
@@ -95,10 +93,10 @@ export default function HomePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
                     <h3 className="text-gold text-[clamp(1.3rem,2.5vw,1.6rem)] font-serif tracking-[0.05em] mb-3">
-                      Sound Experiences
+                      Sound Journeys
                     </h3>
                     <p className="text-beige/80 font-light text-sm sm:text-base mb-4">
-                      Handpan performances, live sound, and organic electronic journeys for sunsets, villas, and private events.
+                      Handpan, DJ sets and immersive sound journeys blending live performance, organic electronic music and atmosphere.
                     </p>
                     <span className="text-gold text-xs tracking-[0.15em] uppercase font-light group-hover:tracking-[0.2em] transition-all duration-300">
                       Explore Sound
@@ -120,10 +118,10 @@ export default function HomePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
                     <h3 className="text-gold text-[clamp(1.3rem,2.5vw,1.6rem)] font-serif tracking-[0.05em] mb-3">
-                      Body Experiences
+                      The Emerald Touch
                     </h3>
                     <p className="text-beige/80 font-light text-sm sm:text-base mb-4">
-                      Head massage, deep relaxation, and energy work for 1:1 private sessions.
+                      A unique head massage experience where touch, stillness and presence come together to create space for deep relaxation and inner exploration.
                     </p>
                     <span className="text-gold text-xs tracking-[0.15em] uppercase font-light group-hover:tracking-[0.2em] transition-all duration-300">
                       Explore Body

@@ -1,106 +1,152 @@
 import Link from 'next/link'
-import { MessageCircle } from 'lucide-react'
+import { MessageCircle, Instagram } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 
-const WHATSAPP_LINK = 'https://wa.me/972587855123?text=Hello%20Tom,%20I%20am%20interested%20in%20booking%20a%20body%20session%20in%20Ibiza'
+const WHATSAPP_LINK = 'https://wa.me/972587855123'
+const INSTAGRAM_LINK = 'https://www.instagram.com/pranarta7/'
 
-const bodyExperiences = [
-  {
-    title: 'Deep Head Massage',
-    description: 'A refined, calming session focused on nervous system reset and deep relaxation. Subtle touch meets presence for profound release and mental clarity.',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-23%20at%2023.27.24-sHKAV8qRZSmGSoyGfT89iD9kmQycX5.jpeg',
-  },
-  {
-    title: 'Energy Work',
-    description: 'Reiki-based healing and subtle energy practices for alignment, clarity, and inner balance. A deeply grounding experience for body and mind.',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-23%20at%2023.j27.24-lJSYqpeD9MA8g3X8EO3UxvnTzTAtjr.jpeg',
-  },
-  {
-    title: '1:1 Private Sessions',
-    description: 'Fully personalized bodywork sessions tailored to your specific needs. Combining various modalities for a complete experience.',
-    image: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-23%20%20nat%2023.27.24-fhHO9cnDUVIsDlinHyYmpSczeCoiv2.jpeg',
-  },
-]
+const HEAD_MASSAGE_IMAGE =
+  'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-23%20at%2023.27.24-sHKAV8qRZSmGSoyGfT89iD9kmQycX5.jpeg'
 
 export default function BodyPage() {
   return (
     <>
-      {/* Hero Section */}
+      {/* Hero */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-dark pt-20">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-35"
-          style={{
-            backgroundImage: 'url(https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-23%20at%2023.27.24-sHKAV8qRZSmGSoyGfT89iD9kmQycX5.jpeg)',
-          }}
+          style={{ backgroundImage: `url(${HEAD_MASSAGE_IMAGE})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-dark/50 via-dark/70 to-dark" />
 
         <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto py-20">
           <Reveal>
-            <p className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase font-light mb-4">
-              Body Experiences
-            </p>
+            <h1 className="font-serif text-[clamp(2rem,5vw,4rem)] font-light text-beige mb-6 leading-[1.2] tracking-[0.02em]">
+              The Emerald Touch
+            </h1>
           </Reveal>
           <Reveal delay={100}>
-            <h1 className="font-serif text-[clamp(2rem,5vw,4rem)] font-light text-beige mb-6 leading-[1.2] tracking-[0.02em]">
-              Head Massage & Bodywork
-            </h1>
+            <p className="font-serif text-[clamp(1.1rem,2vw,1.4rem)] font-light text-beige/90 mb-4">
+              More than a head massage.
+            </p>
           </Reveal>
           <Reveal delay={200}>
             <p className="text-beige/80 text-base sm:text-lg font-light leading-relaxed max-w-2xl mx-auto">
-              Deep relaxation, energy work, and 1:1 private sessions for complete restoration.
+              Where touch meets presence.
             </p>
           </Reveal>
         </div>
       </section>
 
-      {/* Experiences Grid */}
+      {/* What Is The Emerald Touch? */}
       <section className="py-20 sm:py-28 bg-dark">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="space-y-16 sm:space-y-24">
-            {bodyExperiences.map((experience, index) => (
-              <Reveal key={experience.title} delay={100}>
-                <div className={`grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''}`}>
-                  <div className={index % 2 === 1 ? 'lg:order-2' : ''}>
-                    <div className="aspect-[4/3] overflow-hidden border border-gold/20">
-                      <img
-                        src={experience.image}
-                        alt={experience.title}
-                        className="w-full h-full object-cover opacity-85"
-                      />
-                    </div>
-                  </div>
-                  <div className={`space-y-4 ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
-                    <h3 className="font-serif text-[clamp(1.4rem,2.5vw,2rem)] text-beige tracking-[0.02em]">
-                      {experience.title}
-                    </h3>
-                    <p className="text-beige/70 font-light text-base sm:text-lg leading-relaxed">
-                      {experience.description}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
+          <Reveal>
+            <h2 className="font-serif text-[clamp(1.6rem,3vw,2.4rem)] font-light text-beige tracking-[0.02em] mb-8 sm:mb-10">
+              What Is The Emerald Touch?
+            </h2>
+          </Reveal>
+          <Reveal delay={100}>
+            <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed mb-6">
+              The Emerald Touch is one experience — not a list of treatments. In form, it is touch
+              at the head and neck. In essence, it is space: room for the mind to slow, for mental
+              noise to loosen, for you to become present again.
+            </p>
+          </Reveal>
+          <Reveal delay={200}>
+            <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed mb-6">
+              You stay awake. You stay in the room. And something in you settles — a deep
+              relaxation that does not ask you to disappear. The body is met with attention; you
+              feel grounded, as if you have returned to a quieter version of yourself.
+            </p>
+          </Reveal>
+          <Reveal delay={300}>
+            <p className="text-beige/60 text-base sm:text-lg font-light leading-relaxed italic">
+              One signature session. One unhurried hour. Entirely yours.
+            </p>
+          </Reveal>
         </div>
       </section>
 
-      {/* Cross-sell Section */}
+      {/* An Inner Journey */}
+      <section className="py-20 sm:py-28 bg-dark border-t border-gold/10">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
+          <Reveal>
+            <h2 className="font-serif text-[clamp(1.6rem,3vw,2.4rem)] font-light text-beige tracking-[0.02em] mb-8 sm:mb-10">
+              An Inner Journey
+            </h2>
+          </Reveal>
+          <Reveal delay={100}>
+            <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed mb-6">
+              Thoughts grow quieter. Time softens at the edges. There is a deep calm that does not
+              need explaining — only felt.
+            </p>
+          </Reveal>
+          <Reveal delay={200}>
+            <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed mb-6">
+              Some drift in that space between wakefulness and meditation, neither asleep nor
+              striving. Others simply rest — profoundly, fully — and leave feeling more connected
+              to themselves than when they arrived.
+            </p>
+          </Reveal>
+          <Reveal delay={300}>
+            <p className="text-beige/60 text-base sm:text-lg font-light leading-relaxed italic">
+              Everyone&apos;s journey is different. The touch is the same: patient, precise, and
+              present.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* The Story Behind The Emerald Touch */}
+      <section className="py-20 sm:py-28 bg-dark border-t border-gold/10">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
+          <Reveal>
+            <h2 className="font-serif text-[clamp(1.6rem,3vw,2.4rem)] font-light text-beige tracking-[0.02em] mb-8 sm:mb-10">
+              The Story Behind The Emerald Touch
+            </h2>
+          </Reveal>
+          <Reveal delay={100}>
+            <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed mb-6">
+              Tom Van Geem grew up around yoga and meditation — not as doctrine, but as atmosphere.
+              A lifelong fascination with inner exploration led him from stillness to sound: the
+              handpan became another way of listening, another path into presence.
+            </p>
+          </Reveal>
+          <Reveal delay={200}>
+            <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed mb-6">
+              Over years of practice and quiet observation, he shaped a personal approach centered
+              on one thing: being fully here. The Emerald Touch is that approach made tangible —
+              refined touch, unhurried attention, nothing added that does not belong.
+            </p>
+          </Reveal>
+          <Reveal delay={300}>
+            <p className="text-beige/60 text-base sm:text-lg font-light leading-relaxed italic">
+              Music and touch, for Tom, are not separate offerings. They are two expressions of the
+              same inquiry.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Sound & Touch Experience */}
       <section className="py-20 sm:py-28 bg-dark border-t border-gold/10">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 text-center">
           <Reveal>
-            <p className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase font-light mb-4">
-              Enhance Your Experience
-            </p>
-          </Reveal>
-          <Reveal delay={100}>
             <h2 className="font-serif text-[clamp(1.6rem,3vw,2.4rem)] font-light text-beige tracking-[0.02em] mb-6">
-              Optional Live Handpan Accompaniment
+              Sound &amp; Touch Experience
             </h2>
           </Reveal>
+          <Reveal delay={100}>
+            <p className="text-beige/70 font-light text-base sm:text-lg leading-relaxed mb-4 max-w-2xl mx-auto">
+              Live handpan and The Emerald Touch belong together — sound to open the body, touch to
+              let it land. Some evenings begin with music; others end there. Tom shapes the arc
+              with you.
+            </p>
+          </Reveal>
           <Reveal delay={200}>
-            <p className="text-beige/70 font-light text-base sm:text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
-              Elevate your bodywork session with live handpan sound. The combination of touch and sound creates a uniquely immersive healing experience.
+            <p className="text-beige/60 font-light text-base sm:text-lg leading-relaxed mb-8 max-w-2xl mx-auto italic">
+              For private villas, retreats, and gatherings in Ibiza.
             </p>
           </Reveal>
           <Reveal delay={300}>
@@ -114,29 +160,40 @@ export default function BodyPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Book The Emerald Touch */}
       <section className="py-20 sm:py-28 bg-dark border-t border-gold/10">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
           <Reveal>
             <h2 className="font-serif text-[clamp(1.6rem,3vw,2.4rem)] font-light text-beige tracking-[0.02em] mb-6">
-              Book a Session
+              Book The Emerald Touch
             </h2>
           </Reveal>
           <Reveal delay={200}>
             <p className="text-beige/70 text-base sm:text-lg font-light mb-10">
-              Reach out directly to discuss your needs.
+              Available for private sessions, retreats and selected wellness experiences in Ibiza.
             </p>
           </Reveal>
           <Reveal delay={400}>
-            <a
-              href={WHATSAPP_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-gold text-dark border border-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-transparent hover:text-gold"
-            >
-              <MessageCircle className="h-4 w-4" />
-              Book via WhatsApp
-            </a>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+              <a
+                href={WHATSAPP_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-3 px-10 py-4 bg-gold text-dark border border-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-transparent hover:text-gold w-full sm:w-auto min-w-[220px]"
+              >
+                <MessageCircle className="h-4 w-4" />
+                WhatsApp
+              </a>
+              <a
+                href={INSTAGRAM_LINK}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-3 px-10 py-4 border border-gold text-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-gold hover:text-dark w-full sm:w-auto min-w-[220px]"
+              >
+                <Instagram className="h-4 w-4" />
+                Instagram
+              </a>
+            </div>
           </Reveal>
         </div>
       </section>
