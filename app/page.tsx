@@ -14,34 +14,37 @@ export default function HomePage() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-dark/40 via-dark/60 to-dark" />
 
-        <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto py-24 sm:py-32 -translate-y-[50px] sm:-translate-y-[66px] lg:-translate-y-[70px]">
+        <div className="relative z-10 text-center px-4 sm:px-6 lg:px-10 max-w-6xl mx-auto py-24 sm:py-32 -translate-y-[50px] sm:-translate-y-[66px] lg:-translate-y-[70px]">
           <Reveal>
             <h1 className="font-serif text-[clamp(2.5rem,6vw,4.5rem)] font-light text-beige mb-6 leading-[1.2] tracking-[0.04em]">
               {BRAND.name}
             </h1>
           </Reveal>
+
           <Reveal delay={100}>
             <p className="font-serif text-[clamp(1.4rem,2.9vw,2.05rem)] font-light text-beige mb-8 leading-[1.35]">
               {BRAND.tagline}
             </p>
           </Reveal>
+
           <Reveal delay={200}>
-            <div className="max-w-xl mx-auto mb-10">
-              <div className="space-y-2 mb-7">
-                <p className="font-serif text-[clamp(1.2rem,2.2vw,1.45rem)] text-beige/90 font-light leading-snug">
-                  Handpan &amp; Sound Journeys
-                </p>
-                <p className="font-serif text-[clamp(1.2rem,2.2vw,1.45rem)] text-beige/90 font-light leading-snug">
-                  The Emerald Touch · Signature Head Massage
-                </p>
-              </div>
-              <p className="max-w-xl mx-auto text-[1.45rem] sm:text-[1.65rem] text-beige/95 font-light leading-[1.75]">
-                Experiences designed to slow the mind, open the senses and reconnect with presence.
+            <div className="space-y-2 mb-8">
+              <p className="font-serif text-[clamp(1.2rem,2.2vw,1.45rem)] text-beige/90 font-light leading-snug">
+                Handpan &amp; Sound Journeys
+              </p>
+              <p className="font-serif text-[clamp(1.2rem,2.2vw,1.45rem)] text-beige/90 font-light leading-snug">
+                The Emerald Touch · Signature Head Massage
               </p>
             </div>
           </Reveal>
 
           <Reveal delay={300}>
+            <p className="max-w-xl mx-auto text-[1.45rem] sm:text-[1.65rem] text-beige/95 font-light leading-[1.75] mb-10">
+              Experiences designed to slow the mind, open the senses and reconnect with presence.
+            </p>
+          </Reveal>
+
+          <Reveal delay={350}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-10">
               <Link
                 href="/sound"
@@ -200,7 +203,7 @@ export default function HomePage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           <Reveal>
             <div className="text-center mb-12">
-              <h2 className="font-serif text-[clamp(1.8rem,3.5vw,2.8rem)] font-light text-beige tracking-[0.02em]">
+              <h2 className="font-serif text-[clamp(1.25rem,2.2vw,1.75rem)] font-light text-beige tracking-[0.02em]">
                 Gallery
               </h2>
             </div>

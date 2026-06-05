@@ -1,78 +1,48 @@
 import type { Metadata } from 'next'
+import { MessageCircle } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
 import { BRAND, WHATSAPP_PREFILLS, whatsappUrl } from '@/lib/site'
 
 export const metadata: Metadata = {
   title: `Book | ${BRAND.name} | Ibiza`,
-  description: `Book Sound Experiences, The Emerald Touch, or a Signature Experience with ${BRAND.name} in Ibiza.`,
+  description: `Contact ${BRAND.name} directly via WhatsApp to book performances, sound journeys, private sessions and teachings in Ibiza.`,
 }
-
-const bookingOptions = [
-  {
-    title: 'Sound Experiences',
-    description:
-      'Handpan performances, electro-acoustic sound journeys and DJ sets for retreats, festivals, villas and events.',
-    whatsappText: WHATSAPP_PREFILLS.sound,
-  },
-  {
-    title: 'The Emerald Touch',
-    description:
-      'A signature head massage experience — touch, stillness and presence for deep relaxation and inner exploration.',
-    whatsappText: WHATSAPP_PREFILLS.emeraldTouch,
-  },
-  {
-    title: 'Signature Experience',
-    description:
-      'Sound and The Emerald Touch combined in one curated evening — the complete PRANARTA arc.',
-    whatsappText: WHATSAPP_PREFILLS.signature,
-  },
-]
 
 export default function BookingPage() {
   return (
-    <>
-      <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-dark pt-20">
-        <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto py-16">
-          <Reveal>
-            <p className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase font-light mb-4">
-              {BRAND.name}
-            </p>
-            <h1 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-beige tracking-[0.02em] mb-4">
-              Book Your Experience
-            </h1>
-            <p className="text-beige/80 font-light text-base sm:text-lg max-w-[700px] mx-auto">
-              Available in Ibiza for private sessions, retreats, festivals and events.
-            </p>
-          </Reveal>
-        </div>
-      </section>
+    <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-dark pt-20">
+      <div className="relative z-10 text-center px-4 sm:px-6 max-w-2xl mx-auto py-16 sm:py-20">
+        <Reveal>
+          <h1 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-beige tracking-[0.02em] mb-6">
+            Book Your Experience
+          </h1>
+        </Reveal>
 
-      <section className="py-16 sm:py-24 bg-dark border-t border-gold/10">
-        <div className="mx-auto max-w-5xl px-4 sm:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
-            {bookingOptions.map((option, index) => (
-              <Reveal key={option.title} delay={index * 100}>
-                <div className="text-center p-8 sm:p-10 border border-gold/25 transition-all duration-400 hover:border-gold h-full flex flex-col">
-                  <h4 className="text-gold text-lg sm:text-xl font-normal mb-4">
-                    {option.title}
-                  </h4>
-                  <p className="text-beige/70 font-light text-sm sm:text-base mb-8 flex-grow">
-                    {option.description}
-                  </p>
-                  <a
-                    href={whatsappUrl(option.whatsappText)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block px-6 py-3 border border-gold text-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-gold hover:text-dark"
-                  >
-                    Inquire on WhatsApp
-                  </a>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-    </>
+        <Reveal delay={100}>
+          <p className="text-beige/75 font-light text-base sm:text-lg leading-relaxed mb-6">
+            Tell me what you&apos;re looking for and I&apos;ll personally guide you toward the
+            most suitable experience.
+          </p>
+        </Reveal>
+
+        <Reveal delay={200}>
+          <p className="text-gold/50 text-sm font-light tracking-wide mb-10">
+            Performances · Sound Journeys · Private Sessions · Teachings · Collaborations
+          </p>
+        </Reveal>
+
+        <Reveal delay={300}>
+          <a
+            href={whatsappUrl(WHATSAPP_PREFILLS.general)}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-gold text-dark border border-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-transparent hover:text-gold hover:-translate-y-0.5 shadow-[0_0_20px_rgba(201,169,97,0.12)] hover:shadow-[0_4px_24px_rgba(201,169,97,0.22)]"
+          >
+            <MessageCircle className="h-4 w-4" />
+            Contact Directly via WhatsApp
+          </a>
+        </Reveal>
+      </div>
+    </section>
   )
 }

@@ -80,6 +80,12 @@
     @apply bg-dark text-beige;
     line-height: 1.7;
   }
+  body.global-audio-open {
+    padding-bottom: 3.75rem;
+  }
+  body.global-audio-open .whatsapp-float {
+    bottom: 5rem;
+  }
   html {
     scroll-behavior: smooth;
   }

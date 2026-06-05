@@ -16,7 +16,7 @@ export default function AboutPage() {
       <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-dark pt-20">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-35"
-          style={{ backgroundImage: `url(${IMAGES.aboutVilla})` }}
+          style={{ backgroundImage: `url(${IMAGES.gallery[0].src})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-dark/50 via-dark/70 to-dark" />
         <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto py-16 sm:py-20">
@@ -132,6 +132,38 @@ export default function AboutPage() {
               Villas at dusk, retreat circles at dawn, festival stages under open sky — the setting
               changes. The thread remains: presence, sound, and touch in service of something real.
             </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* A Musical Reflection */}
+      <section className="py-20 sm:py-28 bg-dark border-t border-gold/10">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
+          <Reveal>
+            <h2 className="font-serif text-[clamp(1.6rem,3vw,2.4rem)] font-light text-beige tracking-[0.02em] mb-8 sm:mb-10">
+              A Musical Reflection
+            </h2>
+          </Reveal>
+          <Reveal delay={100}>
+            <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed mb-6">
+              Music has always been another way of exploring presence.
+            </p>
+          </Reveal>
+          <Reveal delay={200}>
+            <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed mb-8">
+              One example is Saffron&apos;s Wind — a poetic reflection carried by sound, silence and
+              atmosphere.
+            </p>
+          </Reveal>
+          <Reveal delay={300}>
+            <a
+              href="https://open.spotify.com/album/3HOTX8mNeh4Y6gqlM76TXn?si=mir-Bnk4TP2ls05htIxdtQ"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-8 py-4 border border-gold text-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-gold hover:text-dark"
+            >
+              Listen on Spotify
+            </a>
           </Reveal>
         </div>
       </section>

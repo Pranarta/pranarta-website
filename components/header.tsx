@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X, Instagram, MessageCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { NavAudioTrigger } from '@/components/nav-audio-trigger'
 import { LINKS, WHATSAPP_PREFILLS, whatsappUrl } from '@/lib/site'
 
 const navigation = [
@@ -14,8 +15,10 @@ const navigation = [
   { name: 'Signature', href: '/signature' },
   { name: 'About', href: '/about' },
   { name: 'Gallery', href: '/gallery' },
-  { name: 'Booking', href: '/booking' },
+  { name: 'Teachings', href: '/teachings' },
 ]
+
+const bookingLink = { name: 'Booking', href: '/booking' }
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -63,13 +66,25 @@ export function Header() {
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  'text-beige text-[0.9rem] font-light tracking-[0.1em] uppercase transition-colors duration-300 hover:text-gold',
+                  'text-[0.9rem] font-light tracking-[0.1em] uppercase transition-all duration-300',
+                  'text-beige hover:text-gold',
                   pathname === item.href && 'text-gold'
                 )}
               >
                 {item.name}
               </Link>
             ))}
+            <NavAudioTrigger />
+            <Link
+              href={bookingLink.href}
+              className={cn(
+                'text-[0.9rem] font-light tracking-[0.1em] uppercase transition-all duration-300',
+                'px-4 py-2 border border-gold bg-gold/15 text-gold hover:bg-gold/25 hover:border-gold/90',
+                pathname === bookingLink.href && 'bg-gold/25'
+              )}
+            >
+              {bookingLink.name}
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
@@ -102,9 +117,10 @@ export function Header() {
               key={item.name}
               href={item.href}
               className={cn(
-                'text-xl font-serif text-beige tracking-wide transition-all duration-300 hover:text-gold',
+                'text-xl font-serif tracking-wide transition-all duration-300',
                 'opacity-0 translate-y-4',
                 isMobileMenuOpen && 'animate-fade-up',
+                'text-beige hover:text-gold',
                 pathname === item.href && 'text-gold'
               )}
               style={{ animationDelay: `${index * 100}ms` }}
@@ -112,6 +128,26 @@ export function Header() {
               {item.name}
             </Link>
           ))}
+          <NavAudioTrigger
+            className={cn(
+              'opacity-0 translate-y-4',
+              isMobileMenuOpen && 'animate-fade-up'
+            )}
+            style={{ animationDelay: `${navigation.length * 100}ms` }}
+          />
+          <Link
+            href={bookingLink.href}
+            className={cn(
+              'text-xl font-serif tracking-wide transition-all duration-300',
+              'opacity-0 translate-y-4',
+              isMobileMenuOpen && 'animate-fade-up',
+              'px-6 py-3 border border-gold bg-gold/15 text-gold hover:bg-gold/25',
+              pathname === bookingLink.href && 'bg-gold/25'
+            )}
+            style={{ animationDelay: `${(navigation.length + 1) * 100}ms` }}
+          >
+            {bookingLink.name}
+          </Link>
           
           <div className="flex items-center gap-4 mt-8">
             <a

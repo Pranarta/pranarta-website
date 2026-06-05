@@ -7,16 +7,16 @@ export default function BodyPage() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden bg-dark pt-20">
+      <section className="relative min-h-[56vh] flex items-center justify-center overflow-hidden bg-dark pt-20">
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-35"
           style={{ backgroundImage: `url(${IMAGES.headMassage})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-dark/50 via-dark/70 to-dark" />
 
-        <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto py-20">
+        <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto py-14 sm:py-16">
           <Reveal>
-            <h1 className="font-serif text-[clamp(2rem,5vw,4rem)] font-light text-beige mb-6 leading-[1.2] tracking-[0.02em]">
+            <h1 className="font-serif text-[clamp(2rem,5vw,4rem)] font-light text-beige mb-5 leading-[1.2] tracking-[0.02em]">
               The Emerald Touch
             </h1>
           </Reveal>
@@ -43,21 +43,30 @@ export default function BodyPage() {
           </Reveal>
           <Reveal delay={100}>
             <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed mb-6">
-              The Emerald Touch is one experience — not a list of treatments. In form, it is touch
-              at the head and neck. In essence, it is space: room for the mind to slow, for mental
-              noise to loosen, for you to become present again.
+              The Emerald Touch is a unique head, face, neck and shoulder massage developed through
+              years of practice, refinement and exploration.
             </p>
           </Reveal>
           <Reveal delay={200}>
             <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed mb-6">
-              You stay awake. You stay in the room. And something in you settles — a deep
-              relaxation that does not ask you to disappear. The body is met with attention; you
-              feel grounded, as if you have returned to a quieter version of yourself.
+              Originally inspired by traditional Thai pressure point techniques, the method
+              gradually evolved into a signature experience of its own. Drawing from five
+              complementary disciplines, it combines pressure point work, facial reflexology,
+              therapeutic touch, massage techniques and deep presence into one seamless journey.
             </p>
           </Reveal>
           <Reveal delay={300}>
-            <p className="text-beige/60 text-base sm:text-lg font-light leading-relaxed italic">
-              One signature session. One unhurried hour. Entirely yours.
+            <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed mb-6">
+              Working through key points across the head, face, neck and shoulders, each session
+              is designed to help release accumulated tension, calm mental activity, improve
+              circulation, encourage deep relaxation and create space for the nervous system to
+              reset.
+            </p>
+          </Reveal>
+          <Reveal delay={400}>
+            <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed">
+              More than a treatment, The Emerald Touch is an invitation to slow down, reconnect
+              with yourself and return to a state of clarity, balance and presence.
             </p>
           </Reveal>
         </div>
@@ -89,6 +98,21 @@ export default function BodyPage() {
               Everyone&apos;s journey is different. The touch is the same: patient, precise, and
               present.
             </p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* Visual interlude */}
+      <section className="py-12 sm:py-16 bg-dark border-t border-gold/10">
+        <div className="mx-auto max-w-4xl px-4 sm:px-6">
+          <Reveal>
+            <div className="aspect-[16/9] sm:aspect-[21/9] overflow-hidden border border-gold/20">
+              <img
+                src={IMAGES.gallery[2].src}
+                alt={IMAGES.gallery[2].alt}
+                className="w-full h-full object-cover opacity-85"
+              />
+            </div>
           </Reveal>
         </div>
       </section>

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Lato, Cormorant_Garamond } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
+import { AppProviders } from '@/components/app-providers'
 import { Header } from '@/components/header'
 import { Footer } from '@/components/footer'
 import { WhatsAppFloat } from '@/components/whatsapp-float'
@@ -41,10 +42,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${lato.variable} ${cormorant.variable} bg-dark`}>
       <body className="font-sans antialiased bg-dark text-beige">
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <WhatsAppFloat />
+        <AppProviders>
+          <Header />
+          <main>{children}</main>
+          <Footer />
+          <WhatsAppFloat />
+        </AppProviders>
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>

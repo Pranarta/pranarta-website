@@ -16,7 +16,7 @@ export default function GalleryPage() {
             <p className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase font-light mb-4">
               {BRAND.name}
             </p>
-            <h1 className="font-serif text-[clamp(2rem,4vw,3.5rem)] font-light text-beige tracking-[0.02em]">
+            <h1 className="font-serif text-[clamp(1.25rem,2.2vw,1.75rem)] font-light text-beige tracking-[0.02em]">
               Gallery
             </h1>
           </Reveal>
@@ -47,6 +47,96 @@ export default function GalleryPage() {
                 </a>
               </Reveal>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-24 bg-dark border-t border-gold/10">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6">
+          <Reveal>
+            <h2 className="font-serif text-[clamp(1.25rem,2.2vw,1.75rem)] font-light text-beige tracking-[0.02em] text-center mb-8">
+              Live Moments
+            </h2>
+          </Reveal>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
+            <Reveal delay={100}>
+              <a
+                href="https://www.instagram.com/reel/DLmRftORSh9/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block border border-gold/25 transition-all duration-400 hover:border-gold overflow-hidden h-full"
+              >
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={IMAGES.liveShow}
+                    alt="Handpan Performance"
+                    className="w-full h-full object-cover opacity-75 transition-all duration-500 group-hover:opacity-90 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-7 sm:p-8 text-center">
+                  <h3 className="font-serif text-gold text-xl sm:text-2xl font-light mb-3 group-hover:tracking-wide transition-all duration-300">
+                    Handpan Performance
+                  </h3>
+                  <p className="text-beige/70 font-light text-sm sm:text-base mb-6">
+                    Instagram concert reel.
+                  </p>
+                  <span className="inline-flex items-center gap-2 text-gold text-xs tracking-[0.15em] uppercase font-light group-hover:tracking-[0.2em] transition-all duration-300">
+                    <Instagram className="h-4 w-4" />
+                    Watch on Instagram
+                  </span>
+                </div>
+              </a>
+            </Reveal>
+
+            <Reveal delay={200}>
+              <a
+                href="https://www.instagram.com/p/DQCUhv_CJby/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block border border-gold/25 transition-all duration-400 hover:border-gold overflow-hidden h-full"
+              >
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={IMAGES.headMassage}
+                    alt="The Emerald Touch"
+                    className="w-full h-full object-cover opacity-75 transition-all duration-500 group-hover:opacity-90 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-7 sm:p-8 text-center">
+                  <h3 className="font-serif text-gold text-xl sm:text-2xl font-light mb-3 group-hover:tracking-wide transition-all duration-300">
+                    The Emerald Touch
+                  </h3>
+                  <p className="text-beige/70 font-light text-sm sm:text-base mb-6">
+                    Instagram group session.
+                  </p>
+                  <span className="inline-flex items-center gap-2 text-gold text-xs tracking-[0.15em] uppercase font-light group-hover:tracking-[0.2em] transition-all duration-300">
+                    <Instagram className="h-4 w-4" />
+                    View on Instagram
+                  </span>
+                </div>
+              </a>
+            </Reveal>
+
+            <Reveal delay={300}>
+              <div className="block border border-gold/25 overflow-hidden h-full">
+                <div className="aspect-[4/3] overflow-hidden">
+                  <img
+                    src={IMAGES.gallery[3].src}
+                    alt="Music & Atmosphere"
+                    className="w-full h-full object-cover opacity-60"
+                  />
+                </div>
+                <div className="p-7 sm:p-8 text-center">
+                  <h3 className="font-serif text-gold text-xl sm:text-2xl font-light mb-3">
+                    Music &amp; Atmosphere
+                  </h3>
+                  <p className="text-beige/50 font-light text-sm sm:text-base italic">
+                    More moments coming soon.
+                  </p>
+                </div>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
