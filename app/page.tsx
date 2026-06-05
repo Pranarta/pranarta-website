@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { MessageCircle, Instagram } from 'lucide-react'
+import { HomeHeroQuickNav } from '@/components/home-hero-quick-nav'
 import { Reveal } from '@/components/reveal'
 import { BRAND, IMAGES, LINKS, WHATSAPP_PREFILLS, whatsappUrl } from '@/lib/site'
 
@@ -44,8 +45,12 @@ export default function HomePage() {
             </p>
           </Reveal>
 
+          <Reveal delay={340}>
+            <HomeHeroQuickNav />
+          </Reveal>
+
           <Reveal delay={350}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-10">
+            <div className="hidden lg:flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-10">
               <Link
                 href="/sound"
                 className="inline-block px-10 py-6 border border-gold/80 text-gold text-[0.95rem] tracking-[0.15em] uppercase font-light transition-all duration-500 ease-out hover:border-gold hover:bg-gold/12 w-full sm:w-auto text-center min-w-[270px]"
