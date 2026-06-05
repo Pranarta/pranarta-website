@@ -8,9 +8,10 @@ import { useAudioPlayer } from '@/components/audio-player-context'
 type NavAudioTriggerProps = {
   className?: string
   style?: CSSProperties
+  iconClassName?: string
 }
 
-export function NavAudioTrigger({ className, style }: NavAudioTriggerProps) {
+export function NavAudioTrigger({ className, style, iconClassName }: NavAudioTriggerProps) {
   const { isPlaying, playTrack, activeSource, currentTrack } = useAudioPlayer()
   const isActive = activeSource === 'local' && currentTrack !== null && isPlaying
 
@@ -28,7 +29,10 @@ export function NavAudioTrigger({ className, style }: NavAudioTriggerProps) {
         className
       )}
     >
-      <Play className="h-[0.95rem] w-[0.95rem] ml-0.5" strokeWidth={1.5} />
+      <Play
+        className={cn('h-[0.95rem] w-[0.95rem] ml-0.5', iconClassName)}
+        strokeWidth={1.5}
+      />
     </button>
   )
 }

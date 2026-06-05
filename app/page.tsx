@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { MessageCircle, Instagram } from 'lucide-react'
-import { HomeHeroQuickNav } from '@/components/home-hero-quick-nav'
 import { Reveal } from '@/components/reveal'
 import { BRAND, IMAGES, LINKS, WHATSAPP_PREFILLS, whatsappUrl } from '@/lib/site'
 
@@ -43,10 +42,6 @@ export default function HomePage() {
             <p className="max-w-xl mx-auto text-[1.45rem] sm:text-[1.65rem] text-beige/95 font-light leading-[1.75] mb-10">
               Experiences designed to slow the mind, open the senses and reconnect with presence.
             </p>
-          </Reveal>
-
-          <Reveal delay={340}>
-            <HomeHeroQuickNav />
           </Reveal>
 
           <Reveal delay={350}>

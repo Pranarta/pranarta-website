@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X, Instagram, MessageCircle } from 'lucide-react'
@@ -18,11 +18,22 @@ const navigation = [
   { name: 'Teachings', href: '/teachings' },
 ]
 
+const mobileQuickLinks = new Set(['Sound', 'Body'])
+const mobileMenuNavigation = navigation.filter((item) => !mobileQuickLinks.has(item.name))
+
 const bookingLink = { name: 'Booking', href: '/booking' }
+
+const navLinkClass =
+  'text-[0.9rem] font-light tracking-[0.1em] uppercase transition-all duration-300 text-beige hover:text-gold'
+
+const mobileBarLinkClass =
+  'text-[0.7rem] sm:text-[0.78rem] md:text-[0.85rem] font-light tracking-[0.1em] uppercase transition-all duration-300 text-beige hover:text-gold active:scale-[0.98] shrink-0'
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [headerHeight, setHeaderHeight] = useState(64)
+  const headerRef = useRef<HTMLElement>(null)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -37,8 +48,29 @@ export function Header() {
     setIsMobileMenuOpen(false)
   }, [pathname])
 
+  useEffect(() => {
+    const header = headerRef.current
+    if (!header) return
+
+    const updateHeight = () => {
+      setHeaderHeight(header.offsetHeight)
+    }
+
+    updateHeight()
+
+    const observer = new ResizeObserver(updateHeight)
+    observer.observe(header)
+    window.addEventListener('resize', updateHeight)
+
+    return () => {
+      observer.disconnect()
+      window.removeEventListener('resize', updateHeight)
+    }
+  }, [isScrolled])
+
   return (
     <header
+      ref={headerRef}
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-400',
         isScrolled
@@ -47,10 +79,10 @@ export function Header() {
       )}
     >
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-16">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link 
-            href="/" 
+        {/* Desktop */}
+        <div className="hidden lg:flex items-center justify-between">
+          <Link
+            href="/"
             className="text-gold text-xs sm:text-sm tracking-[0.15em] font-light uppercase"
           >
             <span className="block">PRANARTA</span>
@@ -59,17 +91,12 @@ export function Header() {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex lg:items-center lg:gap-12">
+          <div className="flex items-center gap-12">
             {navigation.map((item) => (
               <Link
                 key={item.name}
                 href={item.href}
-                className={cn(
-                  'text-[0.9rem] font-light tracking-[0.1em] uppercase transition-all duration-300',
-                  'text-beige hover:text-gold',
-                  pathname === item.href && 'text-gold'
-                )}
+                className={cn(navLinkClass, pathname === item.href && 'text-gold')}
               >
                 {item.name}
               </Link>
@@ -78,7 +105,7 @@ export function Header() {
             <Link
               href={bookingLink.href}
               className={cn(
-                'text-[0.9rem] font-light tracking-[0.1em] uppercase transition-all duration-300',
+                navLinkClass,
                 'px-4 py-2 border border-gold bg-gold/15 text-gold hover:bg-gold/25 hover:border-gold/90',
                 pathname === bookingLink.href && 'bg-gold/25'
               )}
@@ -86,33 +113,64 @@ export function Header() {
               {bookingLink.name}
             </Link>
           </div>
+        </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-beige"
-            aria-label="Toggle menu"
+        {/* Mobile / Tablet */}
+        <div className="lg:hidden flex items-start justify-between gap-1.5 sm:gap-2 min-w-0">
+          <Link
+            href="/"
+            className="text-gold text-xs sm:text-sm tracking-[0.15em] font-light uppercase min-w-0 shrink"
           >
-            {isMobileMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </button>
+            <span className="block whitespace-nowrap leading-none">PRANARTA</span>
+            <span className="block normal-case tracking-[0.08em] text-[0.72em] text-beige/40 mt-0.5 whitespace-nowrap leading-tight">
+              by Tom Van Geem
+            </span>
+          </Link>
+
+          <div className="flex items-center gap-2 sm:gap-3 md:gap-4 shrink-0 whitespace-nowrap pt-px">
+            <Link
+              href="/sound"
+              className={cn(mobileBarLinkClass, pathname === '/sound' && 'text-gold')}
+            >
+              Sound
+            </Link>
+            <Link
+              href="/body"
+              className={cn(mobileBarLinkClass, pathname === '/body' && 'text-gold')}
+            >
+              Body
+            </Link>
+            <NavAudioTrigger
+              className="active:scale-95 shrink-0"
+              iconClassName="h-3.5 w-3.5 sm:h-[0.95rem] sm:w-[0.95rem]"
+            />
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-1 sm:p-1.5 text-beige transition-colors duration-300 hover:text-gold shrink-0"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-5 w-5 sm:h-6 sm:w-6" />
+              ) : (
+                <Menu className="h-5 w-5 sm:h-6 sm:w-6" />
+              )}
+            </button>
+          </div>
         </div>
       </nav>
 
       {/* Mobile Menu */}
       <div
         className={cn(
-          'lg:hidden fixed inset-0 top-[60px] bg-dark/98 backdrop-blur-[10px] transition-all duration-500 ease-in-out',
+          'lg:hidden fixed inset-x-0 bottom-0 bg-dark/98 backdrop-blur-[10px] transition-all duration-500 ease-in-out',
           isMobileMenuOpen
             ? 'opacity-100 translate-x-0'
             : 'opacity-0 translate-x-full pointer-events-none'
         )}
+        style={{ top: headerHeight }}
       >
         <div className="flex flex-col items-center justify-start h-full gap-6 pt-12 pb-20 overflow-y-auto">
-          {navigation.map((item, index) => (
+          {mobileMenuNavigation.map((item, index) => (
             <Link
               key={item.name}
               href={item.href}
@@ -128,13 +186,6 @@ export function Header() {
               {item.name}
             </Link>
           ))}
-          <NavAudioTrigger
-            className={cn(
-              'opacity-0 translate-y-4',
-              isMobileMenuOpen && 'animate-fade-up'
-            )}
-            style={{ animationDelay: `${navigation.length * 100}ms` }}
-          />
           <Link
             href={bookingLink.href}
             className={cn(
@@ -144,11 +195,11 @@ export function Header() {
               'px-6 py-3 border border-gold bg-gold/15 text-gold hover:bg-gold/25',
               pathname === bookingLink.href && 'bg-gold/25'
             )}
-            style={{ animationDelay: `${(navigation.length + 1) * 100}ms` }}
+            style={{ animationDelay: `${mobileMenuNavigation.length * 100}ms` }}
           >
             {bookingLink.name}
           </Link>
-          
+
           <div className="flex items-center gap-4 mt-8">
             <a
               href={LINKS.instagram}
