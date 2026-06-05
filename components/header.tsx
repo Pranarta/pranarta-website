@@ -51,7 +51,7 @@ export function Header() {
             className="text-gold text-xs sm:text-sm tracking-[0.15em] font-light uppercase"
           >
             <span className="block">PRANARTA</span>
-            <span className="block normal-case tracking-[0.08em] text-[0.85em] text-beige/70 mt-0.5">
+            <span className="block normal-case tracking-[0.08em] text-[0.72em] text-beige/40 mt-0.5">
               by Tom Van Geem
             </span>
           </Link>

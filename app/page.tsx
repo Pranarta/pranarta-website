@@ -9,76 +9,107 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-dark">
         <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-40"
+          className="absolute inset-0 bg-cover bg-center lg:bg-[center_30%] bg-no-repeat opacity-40"
           style={{ backgroundImage: `url(${IMAGES.heroCrowd})` }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-dark/40 via-dark/60 to-dark" />
 
-        <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto py-24 sm:py-32">
+        <div className="relative z-10 text-center px-4 sm:px-6 max-w-5xl mx-auto py-24 sm:py-32 -translate-y-[50px] sm:-translate-y-[66px] lg:-translate-y-[70px]">
           <Reveal>
-            <p className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase font-light mb-6">
-              {BRAND.practitioner}
-            </p>
-          </Reveal>
-          <Reveal delay={100}>
-            <h1 className="font-serif text-[clamp(2.5rem,6vw,4.5rem)] font-light text-beige mb-4 leading-[1.2] tracking-[0.04em]">
+            <h1 className="font-serif text-[clamp(2.5rem,6vw,4.5rem)] font-light text-beige mb-6 leading-[1.2] tracking-[0.04em]">
               {BRAND.name}
             </h1>
           </Reveal>
-          <Reveal delay={200}>
-            <p className="font-serif text-[clamp(1.2rem,2.5vw,1.75rem)] font-light text-beige/90 mb-4">
+          <Reveal delay={100}>
+            <p className="font-serif text-[clamp(1.4rem,2.9vw,2.05rem)] font-light text-beige mb-8 leading-[1.35]">
               {BRAND.tagline}
             </p>
           </Reveal>
-          <Reveal delay={300}>
-            <p className="text-beige/80 text-base sm:text-lg font-light leading-relaxed max-w-2xl mx-auto mb-10">
-              Handpan &amp; Sound Journeys · The Emerald Touch
-              <br />
-              <span className="text-beige/70">
+          <Reveal delay={200}>
+            <div className="max-w-xl mx-auto mb-10">
+              <div className="space-y-2 mb-7">
+                <p className="font-serif text-[clamp(1.2rem,2.2vw,1.45rem)] text-beige/90 font-light leading-snug">
+                  Handpan &amp; Sound Journeys
+                </p>
+                <p className="font-serif text-[clamp(1.2rem,2.2vw,1.45rem)] text-beige/90 font-light leading-snug">
+                  The Emerald Touch · Signature Head Massage
+                </p>
+              </div>
+              <p className="max-w-xl mx-auto text-[1.45rem] sm:text-[1.65rem] text-beige/95 font-light leading-[1.75]">
                 Experiences designed to slow the mind, open the senses and reconnect with presence.
-              </span>
-            </p>
+              </p>
+            </div>
           </Reveal>
 
-          <Reveal delay={400}>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+          <Reveal delay={300}>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-5 sm:gap-10">
               <Link
-                href="/signature"
-                className="inline-block px-8 py-4 bg-gold text-dark border border-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-transparent hover:text-gold w-full sm:w-auto text-center min-w-[240px]"
+                href="/sound"
+                className="inline-block px-10 py-6 border border-gold/80 text-gold text-[0.95rem] tracking-[0.15em] uppercase font-light transition-all duration-500 ease-out hover:border-gold hover:bg-gold/12 w-full sm:w-auto text-center min-w-[270px]"
               >
-                Signature Experience
+                Explore Sound
               </Link>
               <Link
-                href="/booking"
-                className="inline-block px-8 py-4 border border-gold text-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-gold hover:text-dark w-full sm:w-auto text-center min-w-[240px]"
+                href="/body"
+                className="inline-block px-10 py-6 border border-gold/80 text-gold text-[0.95rem] tracking-[0.15em] uppercase font-light transition-all duration-500 ease-out hover:border-gold hover:bg-gold/12 w-full sm:w-auto text-center min-w-[270px]"
               >
-                Book with {BRAND.name}
+                Explore Body
               </Link>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* Fusion */}
+      {/* Dual Offering */}
       <section className="py-24 sm:py-32 bg-dark border-t border-gold/10">
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 text-center">
-          <Reveal>
-            <h2 className="font-serif text-[clamp(1.8rem,3.5vw,2.8rem)] font-light text-beige tracking-[0.02em] mb-8 leading-[1.3]">
-              {BRAND.tagline}
-            </h2>
-          </Reveal>
-          <Reveal delay={200}>
-            <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed mb-6">
-              {BRAND.name} blends live handpan, organic electronic sound, and The Emerald Touch into
-              refined, deeply immersive experiences — curated for luxury villas, retreats, and
-              meaningful gatherings in Ibiza.
-            </p>
-          </Reveal>
-          <Reveal delay={300}>
-            <p className="text-beige/60 text-base sm:text-lg font-light leading-relaxed italic">
-              Public performances and private bookings — Ibiza and beyond.
-            </p>
-          </Reveal>
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
+            <Reveal>
+              <Link href="/sound" className="group block">
+                <div className="relative aspect-[4/5] overflow-hidden border border-gold/20 mb-8 transition-all duration-500 group-hover:border-gold">
+                  <img
+                    src={IMAGES.liveShow}
+                    alt="Handpan & Sound Journeys"
+                    className="w-full h-full object-cover opacity-75 transition-all duration-500 group-hover:opacity-90 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/20 to-transparent" />
+                </div>
+                <h2 className="font-serif text-[clamp(1.5rem,2.5vw,2rem)] font-light text-gold tracking-[0.03em] mb-4 leading-[1.3]">
+                  Handpan &amp; Sound Journeys
+                </h2>
+                <p className="text-beige/75 font-light text-base sm:text-lg leading-relaxed mb-6 max-w-md">
+                  Live handpan, organic electronic music and immersive sound experiences for villas,
+                  retreats and meaningful gatherings.
+                </p>
+                <span className="text-gold text-xs tracking-[0.15em] uppercase font-light group-hover:tracking-[0.2em] transition-all duration-300">
+                  Explore Sound
+                </span>
+              </Link>
+            </Reveal>
+
+            <Reveal delay={150}>
+              <Link href="/body" className="group block">
+                <div className="relative aspect-[4/5] overflow-hidden border border-gold/20 mb-8 transition-all duration-500 group-hover:border-gold">
+                  <img
+                    src={IMAGES.headMassage}
+                    alt="The Emerald Touch"
+                    className="w-full h-full object-cover opacity-75 transition-all duration-500 group-hover:opacity-90 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/20 to-transparent" />
+                </div>
+                <h2 className="font-serif text-[clamp(1.5rem,2.5vw,2rem)] font-light text-gold tracking-[0.03em] mb-4 leading-[1.3]">
+                  The Emerald Touch
+                </h2>
+                <p className="text-beige/75 font-light text-base sm:text-lg leading-relaxed mb-6 max-w-md">
+                  A signature head massage experience designed to calm the nervous system, quiet the
+                  mind and invite deep relaxation.
+                </p>
+                <span className="text-gold text-xs tracking-[0.15em] uppercase font-light group-hover:tracking-[0.2em] transition-all duration-300">
+                  Explore Body
+                </span>
+              </Link>
+            </Reveal>
+          </div>
         </div>
       </section>
 
@@ -91,17 +122,17 @@ export default function HomePage() {
                 <div className="relative aspect-[4/3] overflow-hidden border border-gold/20 transition-all duration-500 group-hover:border-gold">
                   <img
                     src={IMAGES.liveShow}
-                    alt="Sound Experiences"
+                    alt="Handpan & Sound Journeys"
                     className="w-full h-full object-cover opacity-70 transition-all duration-500 group-hover:opacity-90 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent" />
                   <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
                     <h3 className="text-gold text-[clamp(1.2rem,2vw,1.5rem)] font-serif tracking-[0.05em] mb-3">
-                      Sound Experiences
+                      Handpan &amp; Sound Journeys
                     </h3>
                     <p className="text-beige/80 font-light text-sm sm:text-base mb-4">
-                      Handpan, DJ sets and immersive sound journeys blending live performance,
-                      organic electronic music and atmosphere.
+                      Live handpan, organic electronic music and immersive sound experiences for
+                      villas, retreats and meaningful gatherings.
                     </p>
                     <span className="text-gold text-xs tracking-[0.15em] uppercase font-light group-hover:tracking-[0.2em] transition-all duration-300">
                       Explore Sound
@@ -125,8 +156,8 @@ export default function HomePage() {
                       The Emerald Touch
                     </h3>
                     <p className="text-beige/80 font-light text-sm sm:text-base mb-4">
-                      A unique head massage experience where touch, stillness and presence come
-                      together to create space for deep relaxation and inner exploration.
+                      A signature head massage experience designed to calm the nervous system, quiet
+                      the mind and invite deep relaxation.
                     </p>
                     <span className="text-gold text-xs tracking-[0.15em] uppercase font-light group-hover:tracking-[0.2em] transition-all duration-300">
                       Explore Body
@@ -150,8 +181,8 @@ export default function HomePage() {
                       Signature Experience
                     </h3>
                     <p className="text-beige/80 font-light text-sm sm:text-base mb-4">
-                      Sound and The Emerald Touch in one curated evening — the complete {BRAND.name}{' '}
-                      arc for villas, retreats and private gatherings.
+                      Sound and touch combined into one curated experience — the complete{' '}
+                      {BRAND.name} journey.
                     </p>
                     <span className="text-gold text-xs tracking-[0.15em] uppercase font-light group-hover:tracking-[0.2em] transition-all duration-300">
                       Explore Signature
