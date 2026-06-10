@@ -1,58 +1,56 @@
-import type { Metadata } from 'next'
+'use client'
+
 import { MessageCircle } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
-import { BRAND, WHATSAPP_PREFILLS, whatsappUrl } from '@/lib/site'
-
-export const metadata: Metadata = {
-  title: 'Teachings | PRANARTA | Ibiza',
-  description:
-    'Private lessons, workshops and mentorship in handpan, djembe, DJ performance, music production, Emerald Touch and Reiki with PRANARTA.',
-}
-
-const teachings = [
-  {
-    title: 'Handpan & Djembe',
-    subtitle: 'Rhythm • Musicality • Improvisation',
-    body: 'Private lessons, workshops and online sessions for beginners, intermediate and advanced players.',
-    features: 'Private Lessons · Workshops · Online Sessions',
-  },
-  {
-    title: 'DJ Performance',
-    subtitle: 'Mixing • Storytelling • Energy Flow',
-    body: 'Private coaching and online mentoring in DJing, musical selection and creating meaningful journeys through sound.',
-    features: 'Mixing · Harmonic Flow · Performance Skills',
-  },
-  {
-    title: 'Music Production',
-    subtitle: 'Ableton Live • Sound Design • Arrangement',
-    body: 'Ableton Live coaching, workflow design and online production sessions for organic electronic music.',
-    features: 'Ableton Live · Sound Design · Arrangement',
-  },
-  {
-    title: 'Mentorship',
-    subtitle: 'Clarity • Direction • Artistic Development',
-    body: 'Personal guidance for artists, facilitators and practitioners — available in person or online.',
-  },
-  {
-    title: 'The Emerald Touch Practitioner Training',
-    subtitle: 'Presence • Touch • Listening',
-    body: 'Training in the foundations, philosophy and practical application of The Emerald Touch.',
-  },
-  {
-    title: 'Reiki Initiations (Level I–IV)',
-    subtitle: 'Energy Awareness • Presence • Healing Arts',
-    body: 'Traditional Reiki initiations and guidance from Level I through Level IV.',
-  },
-]
-
-const credibility = [
-  '20+ years of musical exploration',
-  'International performances',
-  'Ableton Live producer and performer',
-  'Creator of The Emerald Touch',
-]
+import { BRAND, whatsappUrl } from '@/lib/site'
+import { useTranslations } from '@/hooks/use-translations'
 
 export default function TeachingsPage() {
+  const t = useTranslations()
+
+  const teachings = [
+    {
+      title: t.teachings.cards.handpanDjembe.title,
+      subtitle: t.teachings.cards.handpanDjembe.subtitle,
+      body: t.teachings.cards.handpanDjembe.body,
+      features: t.teachings.cards.handpanDjembe.features,
+    },
+    {
+      title: t.teachings.cards.djPerformance.title,
+      subtitle: t.teachings.cards.djPerformance.subtitle,
+      body: t.teachings.cards.djPerformance.body,
+      features: t.teachings.cards.djPerformance.features,
+    },
+    {
+      title: t.teachings.cards.musicProduction.title,
+      subtitle: t.teachings.cards.musicProduction.subtitle,
+      body: t.teachings.cards.musicProduction.body,
+      features: t.teachings.cards.musicProduction.features,
+    },
+    {
+      title: t.teachings.cards.mentorship.title,
+      subtitle: t.teachings.cards.mentorship.subtitle,
+      body: t.teachings.cards.mentorship.body,
+    },
+    {
+      title: t.teachings.cards.emeraldTouchTraining.title,
+      subtitle: t.teachings.cards.emeraldTouchTraining.subtitle,
+      body: t.teachings.cards.emeraldTouchTraining.body,
+    },
+    {
+      title: t.teachings.cards.reikiInitiations.title,
+      subtitle: t.teachings.cards.reikiInitiations.subtitle,
+      body: t.teachings.cards.reikiInitiations.body,
+    },
+  ]
+
+  const credibility = [
+    t.teachings.credibility.years,
+    t.teachings.credibility.international,
+    t.teachings.credibility.ableton,
+    t.teachings.credibility.creator,
+  ]
+
   return (
     <>
       <section className="relative flex items-center justify-center overflow-hidden bg-dark pt-20">
@@ -62,13 +60,12 @@ export default function TeachingsPage() {
               {BRAND.name}
             </p>
             <h1 className="font-serif text-[clamp(2rem,5vw,3.5rem)] font-light text-beige mb-5 leading-[1.2] tracking-[0.02em]">
-              Teachings
+              {t.teachings.hero.h1}
             </h1>
           </Reveal>
           <Reveal delay={100}>
             <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed max-w-2xl mx-auto">
-              Private lessons, workshops and mentorship for musicians, creators and facilitators
-              seeking deeper expression, skill and presence.
+              {t.teachings.hero.intro}
             </p>
           </Reveal>
         </div>
@@ -122,24 +119,23 @@ export default function TeachingsPage() {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
           <Reveal>
             <h2 className="font-serif text-[clamp(1.6rem,3vw,2.4rem)] font-light text-beige tracking-[0.02em] mb-6">
-              Begin Your Journey
+              {t.teachings.bookCta.heading}
             </h2>
           </Reveal>
           <Reveal delay={200}>
             <p className="text-beige/70 text-base sm:text-lg font-light mb-10">
-              Lessons and mentorship available in person or online. Reach out directly to
-              discuss what you are looking for.
+              {t.teachings.bookCta.text}
             </p>
           </Reveal>
           <Reveal delay={400}>
             <a
-              href={whatsappUrl(WHATSAPP_PREFILLS.teachings)}
+              href={whatsappUrl(t.whatsappPrefills.teachings)}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-gold text-dark border border-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-gold/90 hover:border-gold/90 hover:-translate-y-0.5 shadow-[0_0_20px_rgba(201,169,97,0.12)] hover:shadow-[0_4px_24px_rgba(201,169,97,0.22)]"
             >
               <MessageCircle className="h-4 w-4" />
-              Contact via WhatsApp
+              {t.common.buttons.contactViaWhatsapp}
             </a>
           </Reveal>
         </div>

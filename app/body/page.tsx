@@ -1,9 +1,14 @@
+'use client'
+
 import Link from 'next/link'
 import { MessageCircle, Instagram } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
-import { IMAGES, LINKS, WHATSAPP_PREFILLS, whatsappUrl } from '@/lib/site'
+import { IMAGES, LINKS, whatsappUrl } from '@/lib/site'
+import { useTranslations } from '@/hooks/use-translations'
 
 export default function BodyPage() {
+  const t = useTranslations()
+
   return (
     <>
       {/* Hero */}
@@ -17,17 +22,17 @@ export default function BodyPage() {
         <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto py-14 sm:py-16">
           <Reveal>
             <h1 className="font-serif text-[clamp(2rem,5vw,4rem)] font-light text-beige mb-5 leading-[1.2] tracking-[0.02em]">
-              The Emerald Touch
+              {t.body.hero.h1}
             </h1>
           </Reveal>
           <Reveal delay={100}>
             <p className="font-serif text-[clamp(1.1rem,2vw,1.4rem)] font-light text-beige/90 mb-4">
-              More than a head massage.
+              {t.body.hero.subhead}
             </p>
           </Reveal>
           <Reveal delay={200}>
             <p className="text-beige/80 text-base sm:text-lg font-light leading-relaxed max-w-2xl mx-auto">
-              Where touch meets presence.
+              {t.body.hero.tagline}
             </p>
           </Reveal>
         </div>
@@ -38,35 +43,27 @@ export default function BodyPage() {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
           <Reveal>
             <h2 className="font-serif text-[clamp(1.6rem,3vw,2.4rem)] font-light text-beige tracking-[0.02em] mb-8 sm:mb-10">
-              What Is The Emerald Touch?
+              {t.body.whatIs.heading}
             </h2>
           </Reveal>
           <Reveal delay={100}>
             <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed mb-6">
-              The Emerald Touch is a unique head, face, neck and shoulder massage developed through
-              years of practice, refinement and exploration.
+              {t.body.whatIs.para1}
             </p>
           </Reveal>
           <Reveal delay={200}>
             <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed mb-6">
-              Originally inspired by traditional Thai pressure point techniques, the method
-              gradually evolved into a signature experience of its own. Drawing from five
-              complementary disciplines, it combines pressure point work, facial reflexology,
-              therapeutic touch, massage techniques and deep presence into one seamless journey.
+              {t.body.whatIs.para2}
             </p>
           </Reveal>
           <Reveal delay={300}>
             <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed mb-6">
-              Working through key points across the head, face, neck and shoulders, each session
-              is designed to help release accumulated tension, calm mental activity, improve
-              circulation, encourage deep relaxation and create space for the nervous system to
-              reset.
+              {t.body.whatIs.para3}
             </p>
           </Reveal>
           <Reveal delay={400}>
             <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed">
-              More than a treatment, The Emerald Touch is an invitation to slow down, reconnect
-              with yourself and return to a state of clarity, balance and presence.
+              {t.body.whatIs.para4}
             </p>
           </Reveal>
         </div>
@@ -77,26 +74,22 @@ export default function BodyPage() {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
           <Reveal>
             <h2 className="font-serif text-[clamp(1.6rem,3vw,2.4rem)] font-light text-beige tracking-[0.02em] mb-8 sm:mb-10">
-              An Inner Journey
+              {t.body.innerJourney.heading}
             </h2>
           </Reveal>
           <Reveal delay={100}>
             <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed mb-6">
-              Thoughts grow quieter. Time softens at the edges. There is a deep calm that does not
-              need explaining — only felt.
+              {t.body.innerJourney.para1}
             </p>
           </Reveal>
           <Reveal delay={200}>
             <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed mb-6">
-              Some drift in that space between wakefulness and meditation, neither asleep nor
-              striving. Others simply rest — profoundly, fully — and leave feeling more connected
-              to themselves than when they arrived.
+              {t.body.innerJourney.para2}
             </p>
           </Reveal>
           <Reveal delay={300}>
             <p className="text-beige/60 text-base sm:text-lg font-light leading-relaxed italic">
-              Everyone&apos;s journey is different. The touch is the same: patient, precise, and
-              present.
+              {t.body.innerJourney.para3}
             </p>
           </Reveal>
         </div>
@@ -122,27 +115,22 @@ export default function BodyPage() {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
           <Reveal>
             <h2 className="font-serif text-[clamp(1.6rem,3vw,2.4rem)] font-light text-beige tracking-[0.02em] mb-8 sm:mb-10">
-              The Story Behind The Emerald Touch
+              {t.body.story.heading}
             </h2>
           </Reveal>
           <Reveal delay={100}>
             <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed mb-6">
-              Tom Van Geem grew up around yoga and meditation — not as doctrine, but as atmosphere.
-              A lifelong fascination with inner exploration led him from stillness to sound: the
-              handpan became another way of listening, another path into presence.
+              {t.body.story.para1}
             </p>
           </Reveal>
           <Reveal delay={200}>
             <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed mb-6">
-              Over years of practice and quiet observation, he shaped a personal approach centered
-              on one thing: being fully here. The Emerald Touch is that approach made tangible —
-              refined touch, unhurried attention, nothing added that does not belong.
+              {t.body.story.para2}
             </p>
           </Reveal>
           <Reveal delay={300}>
             <p className="text-beige/60 text-base sm:text-lg font-light leading-relaxed italic">
-              Music and touch, for Tom, are not separate offerings. They are two expressions of the
-              same inquiry.
+              {t.body.story.para3}
             </p>
           </Reveal>
         </div>
@@ -153,19 +141,17 @@ export default function BodyPage() {
         <div className="mx-auto max-w-4xl px-4 sm:px-6 text-center">
           <Reveal>
             <h2 className="font-serif text-[clamp(1.6rem,3vw,2.4rem)] font-light text-beige tracking-[0.02em] mb-6">
-              Sound &amp; Touch Experience
+              {t.body.soundAndTouch.heading}
             </h2>
           </Reveal>
           <Reveal delay={100}>
             <p className="text-beige/70 font-light text-base sm:text-lg leading-relaxed mb-4 max-w-2xl mx-auto">
-              Live handpan and The Emerald Touch belong together — sound to open the body, touch to
-              let it land. Some evenings begin with music; others end there. Tom shapes the arc
-              with you.
+              {t.body.soundAndTouch.para1}
             </p>
           </Reveal>
           <Reveal delay={200}>
             <p className="text-beige/60 font-light text-base sm:text-lg leading-relaxed mb-8 max-w-2xl mx-auto italic">
-              For private villas, retreats, and gatherings in Ibiza.
+              {t.body.soundAndTouch.para2}
             </p>
           </Reveal>
           <Reveal delay={300}>
@@ -174,13 +160,13 @@ export default function BodyPage() {
                 href="/sound"
                 className="inline-block px-8 py-4 border border-gold text-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-gold hover:text-dark"
               >
-                Explore Sound Experiences
+                {t.common.buttons.exploreSoundExperiences}
               </Link>
               <Link
                 href="/signature"
                 className="inline-block px-8 py-4 border border-gold text-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-gold hover:text-dark"
               >
-                Signature Experience
+                {t.common.buttons.signatureExperience}
               </Link>
             </div>
           </Reveal>
@@ -192,24 +178,24 @@ export default function BodyPage() {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
           <Reveal>
             <h2 className="font-serif text-[clamp(1.6rem,3vw,2.4rem)] font-light text-beige tracking-[0.02em] mb-6">
-              Book The Emerald Touch
+              {t.body.bookCta.heading}
             </h2>
           </Reveal>
           <Reveal delay={200}>
             <p className="text-beige/70 text-base sm:text-lg font-light mb-10">
-              Available for private sessions, retreats and selected wellness experiences in Ibiza.
+              {t.body.bookCta.text}
             </p>
           </Reveal>
           <Reveal delay={400}>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
               <a
-                href={whatsappUrl(WHATSAPP_PREFILLS.emeraldTouch)}
+                href={whatsappUrl(t.whatsappPrefills.emeraldTouch)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-3 px-10 py-4 bg-gold text-dark border border-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-transparent hover:text-gold w-full sm:w-auto min-w-[220px]"
               >
                 <MessageCircle className="h-4 w-4" />
-                WhatsApp
+                {t.common.buttons.whatsapp}
               </a>
               <a
                 href={LINKS.instagram}
@@ -218,7 +204,7 @@ export default function BodyPage() {
                 className="flex items-center justify-center gap-3 px-10 py-4 border border-gold text-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-gold hover:text-dark w-full sm:w-auto min-w-[220px]"
               >
                 <Instagram className="h-4 w-4" />
-                Instagram
+                {t.common.buttons.instagram}
               </a>
             </div>
           </Reveal>

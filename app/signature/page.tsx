@@ -1,34 +1,29 @@
-import type { Metadata } from 'next'
+'use client'
+
 import Link from 'next/link'
 import { MessageCircle } from 'lucide-react'
 import { Reveal } from '@/components/reveal'
-import { BRAND, IMAGES, WHATSAPP_PREFILLS, whatsappUrl } from '@/lib/site'
-
-export const metadata: Metadata = {
-  title: 'Signature Experience | PRANARTA | Ibiza',
-  description:
-    'PRANARTA Signature Experience — Sound and The Emerald Touch combined. Private evenings in Ibiza with Tom Van Geem.',
-}
-
-const scenarios = [
-  {
-    title: 'Villa Welcome Night',
-    description:
-      'Arrive in Ibiza with live handpan as the sun sets, then settle into The Emerald Touch — sound to open, touch to land.',
-  },
-  {
-    title: 'Retreat Closing',
-    description:
-      'A final circle of music followed by individual touch sessions — integration after days of practice and gathering.',
-  },
-  {
-    title: 'Private Celebration',
-    description:
-      'A curated evening for hosts who want something beyond dinner music — atmosphere, presence, and a complete arc.',
-  },
-]
+import { BRAND, IMAGES, whatsappUrl } from '@/lib/site'
+import { useTranslations } from '@/hooks/use-translations'
 
 export default function SignaturePage() {
+  const t = useTranslations()
+
+  const scenarios = [
+    {
+      title: t.signature.scenarios.villaWelcome.title,
+      description: t.signature.scenarios.villaWelcome.description,
+    },
+    {
+      title: t.signature.scenarios.retreatClosing.title,
+      description: t.signature.scenarios.retreatClosing.description,
+    },
+    {
+      title: t.signature.scenarios.privateCelebration.title,
+      description: t.signature.scenarios.privateCelebration.description,
+    },
+  ]
+
   return (
     <>
       {/* Hero */}
@@ -47,18 +42,17 @@ export default function SignaturePage() {
           </Reveal>
           <Reveal delay={100}>
             <h1 className="font-serif text-[clamp(2rem,5vw,4rem)] font-light text-beige mb-5 leading-[1.2] tracking-[0.02em]">
-              Signature Experience
+              {t.signature.hero.h1}
             </h1>
           </Reveal>
           <Reveal delay={200}>
             <p className="font-serif text-[clamp(1.1rem,2vw,1.4rem)] font-light text-beige/90 mb-4">
-              {BRAND.tagline}
+              {t.brand.tagline}
             </p>
           </Reveal>
           <Reveal delay={300}>
             <p className="text-beige/80 text-base sm:text-lg font-light leading-relaxed max-w-2xl mx-auto">
-              Sound and The Emerald Touch in one curated evening — the complete {BRAND.name}{' '}
-              experience.
+              {t.signature.hero.subhead}
             </p>
           </Reveal>
         </div>
@@ -69,19 +63,17 @@ export default function SignaturePage() {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
           <Reveal>
             <h2 className="font-serif text-[clamp(1.6rem,3vw,2.4rem)] font-light text-beige tracking-[0.02em] mb-8 sm:mb-10">
-              The Arc
+              {t.signature.arc.heading}
             </h2>
           </Reveal>
           <Reveal delay={100}>
             <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed mb-6">
-              Tom designs each Signature Experience around your gathering — a live sound opening,
-              The Emerald Touch at the heart, and music to close or carry the evening forward. The
-              sequence is flexible; the intention is not.
+              {t.signature.arc.para1}
             </p>
           </Reveal>
           <Reveal delay={200}>
             <p className="text-beige/60 text-base sm:text-lg font-light leading-relaxed italic">
-              One evening. One thread. Sound and touch in service of presence.
+              {t.signature.arc.para2}
             </p>
           </Reveal>
         </div>
@@ -92,7 +84,7 @@ export default function SignaturePage() {
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <Reveal>
             <h2 className="font-serif text-[clamp(1.6rem,3vw,2.4rem)] font-light text-beige tracking-[0.02em] text-center mb-12">
-              When It Fits
+              {t.signature.scenarios.heading}
             </h2>
           </Reveal>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
@@ -117,14 +109,12 @@ export default function SignaturePage() {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
           <Reveal>
             <h2 className="font-serif text-[clamp(1.6rem,3vw,2.4rem)] font-light text-beige tracking-[0.02em] mb-8">
-              What&apos;s Included
+              {t.signature.included.heading}
             </h2>
           </Reveal>
           <Reveal delay={100}>
             <p className="text-beige/75 text-base sm:text-lg font-light leading-relaxed mb-6">
-              A personal consultation, a tailored sound element — handpan, electro-acoustic, or
-              hybrid — and a full Emerald Touch session. Shaped for your villa, retreat, or private
-              gathering in Ibiza.
+              {t.signature.included.text}
             </p>
           </Reveal>
           <Reveal delay={200}>
@@ -133,13 +123,13 @@ export default function SignaturePage() {
                 href="/sound"
                 className="inline-block px-8 py-4 border border-gold text-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-gold hover:text-dark"
               >
-                Sound Experiences
+                {t.common.buttons.soundExperiences}
               </Link>
               <Link
                 href="/body"
                 className="inline-block px-8 py-4 border border-gold text-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-gold hover:text-dark"
               >
-                The Emerald Touch
+                {t.common.buttons.theEmeraldTouch}
               </Link>
             </div>
           </Reveal>
@@ -151,24 +141,23 @@ export default function SignaturePage() {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
           <Reveal>
             <h2 className="font-serif text-[clamp(1.6rem,3vw,2.4rem)] font-light text-beige tracking-[0.02em] mb-6">
-              Design Your Evening
+              {t.signature.bookCta.heading}
             </h2>
           </Reveal>
           <Reveal delay={200}>
             <p className="text-beige/70 text-base sm:text-lg font-light mb-10">
-              Available for private villas, retreats and selected wellness experiences in Ibiza and
-              beyond.
+              {t.signature.bookCta.text}
             </p>
           </Reveal>
           <Reveal delay={400}>
             <a
-              href={whatsappUrl(WHATSAPP_PREFILLS.signature)}
+              href={whatsappUrl(t.whatsappPrefills.signature)}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 px-10 py-4 bg-gold text-dark border border-gold text-[0.85rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-transparent hover:text-gold"
             >
               <MessageCircle className="h-4 w-4" />
-              Contact via WhatsApp
+              {t.common.buttons.contactViaWhatsapp}
             </a>
           </Reveal>
         </div>

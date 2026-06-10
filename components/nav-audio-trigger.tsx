@@ -4,6 +4,7 @@ import type { CSSProperties } from 'react'
 import { Play } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useAudioPlayer } from '@/components/audio-player-context'
+import { useTranslations } from '@/hooks/use-translations'
 
 type NavAudioTriggerProps = {
   className?: string
@@ -14,12 +15,13 @@ type NavAudioTriggerProps = {
 export function NavAudioTrigger({ className, style, iconClassName }: NavAudioTriggerProps) {
   const { isPlaying, playTrack, activeSource, currentTrack } = useAudioPlayer()
   const isActive = activeSource === 'local' && currentTrack !== null && isPlaying
+  const t = useTranslations()
 
   return (
     <button
       type="button"
       onClick={() => playTrack('vacuum-master')}
-      aria-label="Play music"
+      aria-label={t.a11y.playMusic}
       style={style}
       className={cn(
         'inline-flex items-center justify-center transition-all duration-300',

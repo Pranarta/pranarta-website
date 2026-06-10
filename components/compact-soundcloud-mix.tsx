@@ -4,6 +4,8 @@ import { Play } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { useAudioPlayer } from '@/components/audio-player-context'
 import { soundcloudEmbedUrl } from '@/lib/site'
+import { useTranslations } from '@/hooks/use-translations'
+import { interpolate } from '@/lib/translation-helpers'
 
 type CompactSoundCloudMixProps = {
   id: string
@@ -24,6 +26,7 @@ export function CompactSoundCloudMix({
   const isActive = currentTrack?.id === id && activeSource === 'soundcloud'
   const isCurrentlyPlaying = isActive && isPlaying
   const embedSrc = `${soundcloudEmbedUrl(soundcloudUrl)}&auto_play=false`
+  const t = useTranslations()
 
   return (
     <div
@@ -37,7 +40,7 @@ export function CompactSoundCloudMix({
       <button
         type="button"
         onClick={() => playDjMix(id)}
-        aria-label={isCurrentlyPlaying ? `Pause ${title}` : `Play ${title}`}
+        aria-label={isCurrentlyPlaying ? interpolate(t.a11y.pauseTrack, { title }) : interpolate(t.a11y.playTrack, { title })}
         className="group mb-4 w-full text-left transition-all duration-400 hover:-translate-y-0.5"
       >
         <div className="flex items-start gap-4 sm:gap-5">
@@ -90,7 +93,7 @@ export function CompactSoundCloudMix({
         rel="noopener noreferrer"
         className="mt-3 inline-block text-gold/60 text-xs tracking-[0.1em] font-light transition-colors duration-300 hover:text-gold"
       >
-        Open on SoundCloud →
+        {t.sound.compactSoundcloud.openLink}
       </a>
     </div>
   )

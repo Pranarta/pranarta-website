@@ -5,23 +5,13 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { Menu, X, Instagram, MessageCircle } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { LanguageSelector } from '@/components/language-selector'
 import { NavAudioTrigger } from '@/components/nav-audio-trigger'
-import { LINKS, WHATSAPP_PREFILLS, whatsappUrl } from '@/lib/site'
+import { LINKS, whatsappUrl } from '@/lib/site'
+import { useTranslations } from '@/hooks/use-translations'
 
-const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'Sound', href: '/sound' },
-  { name: 'Body', href: '/body' },
-  { name: 'Signature', href: '/signature' },
-  { name: 'About', href: '/about' },
-  { name: 'Gallery', href: '/gallery' },
-  { name: 'Teachings', href: '/teachings' },
-]
-
-const mobileQuickLinks = new Set(['Sound', 'Body'])
-const mobileMenuNavigation = navigation.filter((item) => !mobileQuickLinks.has(item.name))
-
-const bookingLink = { name: 'Booking', href: '/booking' }
+const mobileQuickLinkHrefs = new Set(['/sound', '/body'])
+const bookingHref = '/booking'
 
 const navLinkClass =
   'text-[0.9rem] font-light tracking-[0.1em] uppercase transition-all duration-300 text-beige hover:text-gold'
@@ -35,6 +25,20 @@ export function Header() {
   const [headerHeight, setHeaderHeight] = useState(64)
   const headerRef = useRef<HTMLElement>(null)
   const pathname = usePathname()
+  const t = useTranslations()
+
+  const navigation = [
+    { name: t.nav.home, href: '/' },
+    { name: t.nav.sound, href: '/sound' },
+    { name: t.nav.body, href: '/body' },
+    { name: t.nav.signature, href: '/signature' },
+    { name: t.nav.about, href: '/about' },
+    { name: t.nav.gallery, href: '/gallery' },
+    { name: t.nav.teachings, href: '/teachings' },
+  ]
+
+  const mobileMenuNavigation = navigation.filter((item) => !mobileQuickLinkHrefs.has(item.href))
+  const bookingLink = { name: t.nav.booking, href: bookingHref }
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,6 +75,7 @@ export function Header() {
   return (
     <header
       ref={headerRef}
+      dir="ltr"
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-400',
         isScrolled
@@ -87,7 +92,7 @@ export function Header() {
           >
             <span className="block">PRANARTA</span>
             <span className="block normal-case tracking-[0.08em] text-[0.72em] text-beige/40 mt-0.5">
-              by Tom Van Geem
+              {t.common.byline}
             </span>
           </Link>
 
@@ -102,16 +107,19 @@ export function Header() {
               </Link>
             ))}
             <NavAudioTrigger />
-            <Link
-              href={bookingLink.href}
-              className={cn(
-                navLinkClass,
-                'px-4 py-2 border border-gold bg-gold/15 text-gold hover:bg-gold/25 hover:border-gold/90',
-                pathname === bookingLink.href && 'bg-gold/25'
-              )}
-            >
-              {bookingLink.name}
-            </Link>
+            <div className="flex items-center gap-3">
+              <LanguageSelector />
+              <Link
+                href={bookingLink.href}
+                className={cn(
+                  navLinkClass,
+                  'px-4 py-2 border border-gold bg-gold/15 text-gold hover:bg-gold/25 hover:border-gold/90',
+                  pathname === bookingLink.href && 'bg-gold/25'
+                )}
+              >
+                {bookingLink.name}
+              </Link>
+            </div>
           </div>
         </div>
 
@@ -123,7 +131,7 @@ export function Header() {
           >
             <span className="block whitespace-nowrap leading-none">PRANARTA</span>
             <span className="block normal-case tracking-[0.08em] text-[0.72em] text-beige/40 mt-0.5 whitespace-nowrap leading-tight">
-              by Tom Van Geem
+              {t.common.byline}
             </span>
           </Link>
 
@@ -132,13 +140,13 @@ export function Header() {
               href="/sound"
               className={cn(mobileBarLinkClass, pathname === '/sound' && 'text-gold')}
             >
-              Sound
+              {t.nav.sound}
             </Link>
             <Link
               href="/body"
               className={cn(mobileBarLinkClass, pathname === '/body' && 'text-gold')}
             >
-              Body
+              {t.nav.body}
             </Link>
             <NavAudioTrigger
               className="active:scale-95 shrink-0"
@@ -147,7 +155,7 @@ export function Header() {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="p-1 sm:p-1.5 text-beige transition-colors duration-300 hover:text-gold shrink-0"
-              aria-label="Toggle menu"
+              aria-label={t.a11y.toggleMenu}
             >
               {isMobileMenuOpen ? (
                 <X className="h-5 w-5 sm:h-6 sm:w-6" />
@@ -186,19 +194,26 @@ export function Header() {
               {item.name}
             </Link>
           ))}
-          <Link
-            href={bookingLink.href}
+          <div
             className={cn(
-              'text-xl font-serif tracking-wide transition-all duration-300',
+              'flex items-center gap-5',
               'opacity-0 translate-y-4',
-              isMobileMenuOpen && 'animate-fade-up',
-              'px-6 py-3 border border-gold bg-gold/15 text-gold hover:bg-gold/25',
-              pathname === bookingLink.href && 'bg-gold/25'
+              isMobileMenuOpen && 'animate-fade-up'
             )}
             style={{ animationDelay: `${mobileMenuNavigation.length * 100}ms` }}
           >
-            {bookingLink.name}
-          </Link>
+            <LanguageSelector dropdownAlign="center" />
+            <Link
+              href={bookingLink.href}
+              className={cn(
+                'text-xl font-serif tracking-wide transition-all duration-300',
+                'px-6 py-3 border border-gold bg-gold/15 text-gold hover:bg-gold/25',
+                pathname === bookingLink.href && 'bg-gold/25'
+              )}
+            >
+              {bookingLink.name}
+            </Link>
+          </div>
 
           <div className="flex items-center gap-4 mt-8">
             <a
@@ -206,18 +221,18 @@ export function Header() {
               target="_blank"
               rel="noopener noreferrer"
               className="p-3 border border-gold/30 text-beige transition-all duration-300 hover:border-gold hover:text-gold"
-              aria-label="Instagram"
+              aria-label={t.a11y.instagram}
             >
               <Instagram className="h-5 w-5" />
             </a>
             <a
-              href={whatsappUrl(WHATSAPP_PREFILLS.general)}
+              href={whatsappUrl(t.whatsappPrefills.general)}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 bg-gold text-dark px-6 py-3 text-sm font-light tracking-[0.15em] uppercase transition-all duration-300 hover:bg-transparent hover:text-gold border border-gold"
             >
               <MessageCircle className="h-4 w-4" />
-              WhatsApp
+              {t.common.buttons.whatsapp}
             </a>
           </div>
         </div>

@@ -6,6 +6,8 @@ import { cn } from '@/lib/utils'
 import { useAudioPlayer } from '@/components/audio-player-context'
 import { DJ_PLAYLIST } from '@/lib/audio-playlist'
 import { soundcloudEmbedUrl } from '@/lib/site'
+import { useTranslations } from '@/hooks/use-translations'
+import { getAudioTrackTranslation, getDjMixTranslation } from '@/lib/translation-helpers'
 
 const SC_IFRAME_SRC = `${soundcloudEmbedUrl(DJ_PLAYLIST[0].soundcloudUrl!)}&auto_play=false`
 
@@ -29,12 +31,21 @@ export function GlobalAudioPlayer() {
     queueIndex,
     queueLength,
     isPlayerVisible,
+    activeSource,
     togglePlay,
     nextTrack,
     prevTrack,
     seek,
     close,
   } = useAudioPlayer()
+  const t = useTranslations()
+
+  const translatedTitle = currentTrack?.id
+    ? (activeSource === 'soundcloud'
+        ? getDjMixTranslation(t, currentTrack.id)?.title
+        : getAudioTrackTranslation(t, currentTrack.id)?.title)
+    : undefined
+  const displayTitle = translatedTitle ?? currentTrack?.title
 
   const progress = duration > 0 ? (currentTime / duration) * 100 : 0
   const canGoPrev = queueIndex > 0 || currentTime > 3
@@ -83,7 +94,7 @@ export function GlobalAudioPlayer() {
               type="button"
               onClick={prevTrack}
               disabled={!currentTrack || !canGoPrev}
-              aria-label="Previous track"
+              aria-label={t.a11y.previousTrack}
               className="flex h-7 w-7 items-center justify-center text-beige/45 transition-all duration-300 hover:text-gold hover:drop-shadow-[0_0_8px_rgba(201,169,97,0.35)] disabled:opacity-25 disabled:hover:text-beige/45 disabled:hover:drop-shadow-none"
             >
               <SkipBack className="h-3.5 w-3.5" />
@@ -93,7 +104,7 @@ export function GlobalAudioPlayer() {
               type="button"
               onClick={togglePlay}
               disabled={!currentTrack}
-              aria-label={isPlaying ? 'Pause' : 'Play'}
+              aria-label={isPlaying ? t.a11y.pause : t.a11y.play}
               className={cn(
                 'flex h-8 w-8 items-center justify-center border text-gold transition-all duration-300',
                 'hover:border-gold hover:bg-gold/10 hover:drop-shadow-[0_0_10px_rgba(201,169,97,0.25)]',
@@ -112,7 +123,7 @@ export function GlobalAudioPlayer() {
               type="button"
               onClick={nextTrack}
               disabled={!currentTrack || !canGoNext}
-              aria-label="Next track"
+              aria-label={t.a11y.nextTrack}
               className="flex h-7 w-7 items-center justify-center text-beige/45 transition-all duration-300 hover:text-gold hover:drop-shadow-[0_0_8px_rgba(201,169,97,0.35)] disabled:opacity-25 disabled:hover:text-beige/45 disabled:hover:drop-shadow-none"
             >
               <SkipForward className="h-3.5 w-3.5" />
@@ -121,7 +132,7 @@ export function GlobalAudioPlayer() {
 
           <div className="hidden min-w-[7rem] shrink-0 sm:block md:min-w-[9rem]">
             <p className="truncate font-serif text-sm text-gold font-light leading-tight">
-              {currentTrack?.title}
+              {displayTitle}
             </p>
             <p className="text-[0.65rem] text-gold/45 font-light tracking-wide">
               {trackCounter}
@@ -136,7 +147,7 @@ export function GlobalAudioPlayer() {
             <div
               ref={progressRef}
               role="slider"
-              aria-label="Playback progress"
+              aria-label={t.a11y.playbackProgress}
               aria-valuemin={0}
               aria-valuemax={duration}
               aria-valuenow={currentTime}
@@ -166,7 +177,7 @@ export function GlobalAudioPlayer() {
 
           <div className="min-w-0 shrink sm:hidden">
             <p className="truncate font-serif text-xs text-gold font-light">
-              {currentTrack?.title}
+              {displayTitle}
             </p>
             <p className="text-[0.6rem] text-gold/45 font-light">{trackCounter}</p>
           </div>
@@ -174,7 +185,7 @@ export function GlobalAudioPlayer() {
           <button
             type="button"
             onClick={close}
-            aria-label="Close player"
+            aria-label={t.a11y.closePlayer}
             className="flex h-7 w-7 shrink-0 items-center justify-center text-beige/40 transition-colors duration-300 hover:text-gold"
           >
             <X className="h-3.5 w-3.5" />

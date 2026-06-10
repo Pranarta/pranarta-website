@@ -1,8 +1,13 @@
+'use client'
+
 import { Reveal } from '@/components/reveal'
 import { Instagram } from 'lucide-react'
 import { BRAND, IMAGES, LINKS } from '@/lib/site'
+import { useTranslations } from '@/hooks/use-translations'
 
 export default function GalleryPage() {
+  const t = useTranslations()
+
   return (
     <>
       <section className="relative min-h-[50vh] flex items-center justify-center overflow-hidden bg-dark pt-20">
@@ -17,7 +22,7 @@ export default function GalleryPage() {
               {BRAND.name}
             </p>
             <h1 className="font-serif text-[clamp(1.25rem,2.2vw,1.75rem)] font-light text-beige tracking-[0.02em]">
-              Gallery
+              {t.gallery.hero.h1}
             </h1>
           </Reveal>
         </div>
@@ -55,7 +60,7 @@ export default function GalleryPage() {
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
           <Reveal>
             <h2 className="font-serif text-[clamp(1.25rem,2.2vw,1.75rem)] font-light text-beige tracking-[0.02em] text-center mb-8">
-              Live Moments
+              {t.gallery.liveMoments.heading}
             </h2>
           </Reveal>
 
@@ -70,20 +75,20 @@ export default function GalleryPage() {
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={IMAGES.liveShow}
-                    alt="Handpan Performance"
+                    alt={t.gallery.cards.handpan.imageAlt}
                     className="w-full h-full object-cover opacity-75 transition-all duration-500 group-hover:opacity-90 group-hover:scale-105"
                   />
                 </div>
                 <div className="p-7 sm:p-8 text-center">
                   <h3 className="font-serif text-gold text-xl sm:text-2xl font-light mb-3 group-hover:tracking-wide transition-all duration-300">
-                    Handpan Performance
+                    {t.gallery.cards.handpan.imageAlt}
                   </h3>
                   <p className="text-beige/70 font-light text-sm sm:text-base mb-6">
-                    Instagram concert reel.
+                    {t.gallery.cards.handpan.description}
                   </p>
                   <span className="inline-flex items-center gap-2 text-gold text-xs tracking-[0.15em] uppercase font-light group-hover:tracking-[0.2em] transition-all duration-300">
                     <Instagram className="h-4 w-4" />
-                    Watch on Instagram
+                    {t.common.buttons.watchOnInstagram}
                   </span>
                 </div>
               </a>
@@ -99,20 +104,20 @@ export default function GalleryPage() {
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={IMAGES.headMassage}
-                    alt="The Emerald Touch"
+                    alt={t.gallery.cards.emeraldTouch.imageAlt}
                     className="w-full h-full object-cover opacity-75 transition-all duration-500 group-hover:opacity-90 group-hover:scale-105"
                   />
                 </div>
                 <div className="p-7 sm:p-8 text-center">
                   <h3 className="font-serif text-gold text-xl sm:text-2xl font-light mb-3 group-hover:tracking-wide transition-all duration-300">
-                    The Emerald Touch
+                    {t.gallery.cards.emeraldTouch.imageAlt}
                   </h3>
                   <p className="text-beige/70 font-light text-sm sm:text-base mb-6">
-                    Instagram group session.
+                    {t.gallery.cards.emeraldTouch.description}
                   </p>
                   <span className="inline-flex items-center gap-2 text-gold text-xs tracking-[0.15em] uppercase font-light group-hover:tracking-[0.2em] transition-all duration-300">
                     <Instagram className="h-4 w-4" />
-                    View on Instagram
+                    {t.common.buttons.viewOnInstagram}
                   </span>
                 </div>
               </a>
@@ -123,16 +128,16 @@ export default function GalleryPage() {
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
                     src={IMAGES.gallery[3].src}
-                    alt="Music & Atmosphere"
+                    alt={t.gallery.cards.comingSoon.imageAlt}
                     className="w-full h-full object-cover opacity-60"
                   />
                 </div>
                 <div className="p-7 sm:p-8 text-center">
                   <h3 className="font-serif text-gold text-xl sm:text-2xl font-light mb-3">
-                    Music &amp; Atmosphere
+                    {t.gallery.cards.comingSoon.imageAlt}
                   </h3>
                   <p className="text-beige/50 font-light text-sm sm:text-base italic">
-                    More moments coming soon.
+                    {t.gallery.cards.comingSoon.text}
                   </p>
                 </div>
               </div>
@@ -145,7 +150,7 @@ export default function GalleryPage() {
         <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
           <Reveal>
             <p className="text-beige/70 text-base sm:text-lg font-light leading-relaxed mb-8">
-              Follow {BRAND.name} for more moments and updates.
+              {t.gallery.followCta.text}
             </p>
           </Reveal>
           <Reveal delay={200}>
@@ -156,7 +161,7 @@ export default function GalleryPage() {
               className="inline-flex items-center gap-3 px-8 py-4 border border-gold text-gold text-[0.9rem] tracking-[0.15em] uppercase font-light transition-all duration-400 hover:bg-gold hover:text-dark"
             >
               <Instagram className="h-4 w-4" />
-              Instagram
+              {t.common.buttons.instagram}
             </a>
           </Reveal>
         </div>
