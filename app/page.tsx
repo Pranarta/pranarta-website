@@ -68,57 +68,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Dual Offering */}
-      <section className="py-24 sm:py-32 bg-dark border-t border-gold/10">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16">
-            <Reveal>
-              <Link href="/sound" className="group block">
-                <div className="relative aspect-[4/5] overflow-hidden border border-gold/20 mb-8 transition-all duration-500 group-hover:border-gold">
-                  <img
-                    src={IMAGES.liveShow}
-                    alt={t.home.dualOffering.sound.heading}
-                    className="w-full h-full object-cover opacity-75 transition-all duration-500 group-hover:opacity-90 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/20 to-transparent" />
-                </div>
-                <h2 className="font-serif text-[clamp(1.5rem,2.5vw,2rem)] font-light text-gold tracking-[0.03em] mb-4 leading-[1.3]">
-                  {t.home.dualOffering.sound.heading}
-                </h2>
-                <p className="text-beige/75 font-light text-base sm:text-lg leading-relaxed mb-6 max-w-md">
-                  {t.home.dualOffering.sound.description}
-                </p>
-                <span className="text-gold text-xs tracking-[0.15em] uppercase font-light group-hover:tracking-[0.2em] transition-all duration-300">
-                  {t.common.buttons.exploreSound}
-                </span>
-              </Link>
-            </Reveal>
-
-            <Reveal delay={150}>
-              <Link href="/body" className="group block">
-                <div className="relative aspect-[4/5] overflow-hidden border border-gold/20 mb-8 transition-all duration-500 group-hover:border-gold">
-                  <img
-                    src={IMAGES.headMassage}
-                    alt={t.home.dualOffering.body.heading}
-                    className="w-full h-full object-cover opacity-75 transition-all duration-500 group-hover:opacity-90 group-hover:scale-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-dark/70 via-dark/20 to-transparent" />
-                </div>
-                <h2 className="font-serif text-[clamp(1.5rem,2.5vw,2rem)] font-light text-gold tracking-[0.03em] mb-4 leading-[1.3]">
-                  {t.home.dualOffering.body.heading}
-                </h2>
-                <p className="text-beige/75 font-light text-base sm:text-lg leading-relaxed mb-6 max-w-md">
-                  {t.home.dualOffering.body.description}
-                </p>
-                <span className="text-gold text-xs tracking-[0.15em] uppercase font-light group-hover:tracking-[0.2em] transition-all duration-300">
-                  {t.common.buttons.exploreBody}
-                </span>
-              </Link>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
       {/* Three Offers */}
       <section className="py-24 sm:py-32 bg-dark">
         <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -156,6 +105,11 @@ export default function HomePage() {
                     className="w-full h-full object-cover opacity-70 transition-all duration-500 group-hover:opacity-90 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-dark/90 via-dark/40 to-transparent" />
+                  <div className="absolute top-4 right-4">
+                    <span className="text-[0.65rem] tracking-[0.12em] uppercase font-light px-2 py-1 border border-[#3d5c4e]/60 text-[#7ab89a]">
+                      15+ years
+                    </span>
+                  </div>
                   <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8">
                     <h3 className="text-gold text-[clamp(1.2rem,2vw,1.5rem)] font-serif tracking-[0.05em] mb-3">
                       {t.home.threeOffers.body.heading}
