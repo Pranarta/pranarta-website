@@ -233,8 +233,8 @@ export const it: Translations = {
   body: {
     hero: {
       h1: 'The Emerald Touch',
-      subhead: 'Più di un massaggio alla testa.',
-      tagline: 'Dove il tocco incontra la presenza.',
+      subhead: 'Massaggio alla testa esclusivo · sviluppato in oltre 15+ anni di pratica',
+      tagline: 'Sessioni private · Ville & ritiri a Ibiza',
     },
     whatIs: {
       heading: "Cos'è The Emerald Touch?",

@@ -229,9 +229,10 @@ export const en = {
 
   body: {
     hero: {
+      eyebrow: 'Body',
       h1: 'The Emerald Touch',
-      subhead: 'More than a head massage.',
-      tagline: 'Where touch meets presence.',
+      subhead: 'Signature head massage · developed through 15+ years of practice',
+      tagline: 'Private sessions · Ibiza villas & retreats',
     },
     whatIs: {
       heading: 'What Is The Emerald Touch?',

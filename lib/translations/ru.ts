@@ -235,8 +235,8 @@ export const ru: Translations = {
   body: {
     hero: {
       h1: 'The Emerald Touch',
-      subhead: 'Больше, чем массаж головы.',
-      tagline: 'Там, где прикосновение встречает присутствие.',
+      subhead: 'Авторский массаж головы · разработанный за 15+ лет практики',
+      tagline: 'Приватные сессии · Виллы & ретриты Ибицы',
     },
     whatIs: {
       heading: 'Что такое The Emerald Touch?',

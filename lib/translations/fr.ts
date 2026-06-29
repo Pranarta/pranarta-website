@@ -235,8 +235,8 @@ export const fr: Translations = {
   body: {
     hero: {
       h1: 'The Emerald Touch',
-      subhead: "Plus qu'un massage crânien.",
-      tagline: 'Là où le toucher rencontre la présence.',
+      subhead: 'Massage crânien signature · développé à travers 15+ ans de pratique',
+      tagline: 'Sessions privées · Villas & retraites à Ibiza',
     },
     whatIs: {
       heading: "Qu'est-ce que The Emerald Touch ?",

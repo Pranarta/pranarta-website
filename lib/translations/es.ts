@@ -234,8 +234,8 @@ export const es: Translations = {
   body: {
     hero: {
       h1: 'The Emerald Touch',
-      subhead: 'Más que un masaje cefálico.',
-      tagline: 'Donde el tacto encuentra la presencia.',
+      subhead: 'Masaje cefálico exclusivo · desarrollado a lo largo de 15+ años de práctica',
+      tagline: 'Sesiones privadas · Villas & retiros en Ibiza',
     },
     whatIs: {
       heading: '¿Qué es The Emerald Touch?',

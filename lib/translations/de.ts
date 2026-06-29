@@ -235,8 +235,8 @@ export const de: Translations = {
   body: {
     hero: {
       h1: 'The Emerald Touch',
-      subhead: 'Mehr als eine Kopfmassage.',
-      tagline: 'Wo Berührung auf Gegenwart trifft.',
+      subhead: 'Signature-Kopfmassage · entwickelt über 15+ Jahre Praxis',
+      tagline: 'Private Sessions · Ibiza Villen & Retreats',
     },
     whatIs: {
       heading: 'Was ist The Emerald Touch?',

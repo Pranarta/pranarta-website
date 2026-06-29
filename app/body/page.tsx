@@ -21,6 +21,9 @@ export default function BodyPage() {
 
         <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto py-14 sm:py-16">
           <Reveal>
+            <p className="text-gold text-xs sm:text-sm tracking-[0.2em] uppercase font-light mb-4">
+              {t.nav.body}
+            </p>
             <h1 className="font-serif text-[clamp(2rem,5vw,4rem)] font-light text-beige mb-5 leading-[1.2] tracking-[0.02em]">
               {t.body.hero.h1}
             </h1>
@@ -129,9 +132,17 @@ export default function BodyPage() {
             </p>
           </Reveal>
           <Reveal delay={300}>
-            <p className="text-beige/60 text-base sm:text-lg font-light leading-relaxed italic">
+            <p className="text-beige/60 text-base sm:text-lg font-light leading-relaxed italic mb-8">
               {t.body.story.para3}
             </p>
+          </Reveal>
+          <Reveal delay={400}>
+            <Link
+              href="/about"
+              className="text-gold text-xs tracking-[0.15em] uppercase font-light hover:tracking-[0.2em] transition-all duration-300"
+            >
+              {t.about.hero.h1} →
+            </Link>
           </Reveal>
         </div>
       </section>

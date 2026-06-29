@@ -234,8 +234,8 @@ export const nl: Translations = {
   body: {
     hero: {
       h1: 'The Emerald Touch',
-      subhead: 'Meer dan een hoofdmassage.',
-      tagline: 'Waar aanraking aanwezigheid ontmoet.',
+      subhead: 'Signature hoofdmassage · ontwikkeld door 15+ jaar praktijk',
+      tagline: "Privésessies · Ibiza villa's & retraites",
     },
     whatIs: {
       heading: 'Wat Is The Emerald Touch?',

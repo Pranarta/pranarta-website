@@ -231,8 +231,8 @@ export const he: Translations = {
   body: {
     hero: {
       h1: 'The Emerald Touch',
-      subhead: 'יותר מעיסוי ראש.',
-      tagline: 'כאשר המגע פוגש את הנוכחות.',
+      subhead: 'עיסוי ראש ייחודי · פותח לאורך 15+ שנות ניסיון',
+      tagline: 'סשנים פרטיים · וילות & ריטריטים באיביזה',
     },
     whatIs: {
       heading: 'מה הוא The Emerald Touch?',
