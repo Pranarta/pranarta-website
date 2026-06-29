@@ -20,6 +20,7 @@ import {
   type Locale,
   isLocale,
 } from '@/lib/i18n'
+import { getTranslations, type Translations } from '@/lib/translations'
 
 type LanguageContextValue = {
   locale: Locale
@@ -55,6 +56,28 @@ function applyLocaleAttributes(locale: Locale) {
   document.documentElement.dir = LOCALE_TEXT_DIRECTION[locale]
 }
 
+const PAGE_META_KEYS: Record<string, keyof Translations['meta']> = {
+  '/': 'home',
+  '/sound': 'sound',
+  '/body': 'body',
+  '/gallery': 'gallery',
+  '/about': 'about',
+  '/booking': 'booking',
+  '/teachings': 'teachings',
+  '/signature': 'signature',
+}
+
+function applyDocumentTitle(locale: Locale, pathname: string) {
+  const normalizedPath = getLocaleFromPath(pathname) ? '/' : pathname
+  const metaKey = PAGE_META_KEYS[normalizedPath]
+  if (!metaKey) return
+  const title = getTranslations(locale).meta[metaKey].title
+  document.title = title
+  requestAnimationFrame(() => {
+    document.title = title
+  })
+}
+
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const router = useRouter()
   const pathname = usePathname()
@@ -65,6 +88,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     setLocaleState(next)
     localStorage.setItem(LOCALE_STORAGE_KEY, next)
     applyLocaleAttributes(next)
+    applyDocumentTitle(next, pathname)
   }, [pathname])
 
   const setLocale = useCallback(
@@ -72,6 +96,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
       setLocaleState(next)
       localStorage.setItem(LOCALE_STORAGE_KEY, next)
       applyLocaleAttributes(next)
+      applyDocumentTitle(next, pathname)
 
       if (isLocaleHomePath(pathname)) {
         router.replace(getLocalePath(next))

@@ -5,7 +5,7 @@ export const BRAND = {
 } as const
 
 export const LINKS = {
-  whatsapp: 'https://wa.me/972587855123',
+  whatsapp: 'https://wa.me/34638454719',
   instagram: 'https://www.instagram.com/pranarta7/',
   email: 'mailto:pranarta7@gmail.com',
   spotify:
@@ -76,6 +76,8 @@ export const IMAGES = {
 export const WHATSAPP_PREFILLS = {
   general:
     'Hello, I would like to inquire about PRANARTA in Ibiza.',
+  instagram:
+    'Hello, I came from Instagram and would like to book a PRANARTA session in Ibiza.',
   sound:
     'Hello, I am interested in booking Sound Experiences with PRANARTA in Ibiza.',
   emeraldTouch:

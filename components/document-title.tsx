@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useLayoutEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import { useLanguage } from '@/components/language-context'
 import { useTranslations } from '@/hooks/use-translations'
@@ -30,7 +30,7 @@ export function DocumentTitle() {
   const { locale } = useLanguage()
   const t = useTranslations()
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const metaKey = PAGE_META_KEYS[resolveMetaPath(pathname)]
     if (metaKey && t.meta[metaKey]) {
       document.title = t.meta[metaKey].title
