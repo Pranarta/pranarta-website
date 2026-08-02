@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ExternalLink, Instagram, MessageCircle, Music2, Sparkles } from 'lucide-react'
+import { ExternalLink, FileDown, Instagram, MessageCircle, Music2, Sparkles } from 'lucide-react'
 import { BRAND, LINKS, WHATSAPP_PREFILLS, whatsappUrl } from '@/lib/site'
 
 const offers = [
@@ -84,6 +84,44 @@ export default function InstagramLandingPage() {
             <span>Handpan</span>
             <span>Emerald Touch</span>
             <span>Retreats</span>
+          </div>
+        </div>
+      </section>
+
+      <section className="border-t border-gold/10 bg-[#181713] py-16 sm:py-20">
+        <div className="mx-auto grid max-w-5xl grid-cols-1 gap-8 px-4 sm:px-6 md:grid-cols-[1.05fr_0.95fr] md:items-center md:gap-12">
+          <div className="relative overflow-hidden border border-gold/15 bg-dark">
+            <img
+              src="/images/namaste-las-dalias-2026.jpg"
+              alt="PRANARTA performing live at Namaste, Las Dalias in Ibiza"
+              className="aspect-[4/3] w-full object-cover object-center"
+            />
+            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-dark via-dark/70 to-transparent px-5 pb-5 pt-14">
+              <p className="text-[0.68rem] font-light uppercase tracking-[0.18em] text-gold">
+                Live proof · Namaste, Las Dalias · Ibiza
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <p className="mb-3 text-xs font-light uppercase tracking-[0.2em] text-gold">
+              For villas, retreats & events
+            </p>
+            <h2 className="mb-5 font-serif text-[clamp(1.8rem,5vw,3rem)] font-light leading-tight text-beige">
+              See the experience before you book.
+            </h2>
+            <p className="mb-7 text-base font-light leading-relaxed text-beige/72">
+              A concise one-page booking deck with live proof, available formats, starting prices and direct contact.
+            </p>
+            <a
+              href="/press/PRANARTA-Booking-EPK.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-14 w-full items-center justify-center gap-3 border border-gold px-6 py-4 text-center text-sm font-light uppercase tracking-[0.14em] text-gold transition-all duration-300 hover:bg-gold hover:text-dark sm:w-auto"
+            >
+              <FileDown className="h-4 w-4" />
+              Open the booking deck
+            </a>
           </div>
         </div>
       </section>

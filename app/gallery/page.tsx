@@ -127,7 +127,7 @@ export default function GalleryPage() {
               <div className="block border border-gold/25 overflow-hidden h-full">
                 <div className="aspect-[4/3] overflow-hidden">
                   <img
-                    src={IMAGES.gallery[3].src}
+                    src={IMAGES.aboutVilla}
                     alt={t.gallery.cards.comingSoon.imageAlt}
                     className="w-full h-full object-cover opacity-60"
                   />

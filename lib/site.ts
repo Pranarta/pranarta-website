@@ -69,7 +69,10 @@ export const IMAGES = {
     { src: '/images/gallery-1.jpg', alt: 'PRANARTA — Live performance — Ibiza' },
     { src: '/images/gallery-2.jpg', alt: 'PRANARTA — Sound journey — Ibiza' },
     { src: '/images/gallery-3.jpg', alt: 'PRANARTA — Emerald Touch — Ibiza' },
-    { src: '/images/gallery-4.jpg', alt: 'PRANARTA — Villa experience — Ibiza' },
+    {
+      src: '/images/namaste-las-dalias-2026.jpg',
+      alt: 'PRANARTA live at Namaste, Las Dalias — Ibiza 2026',
+    },
   ],
 } as const
 
